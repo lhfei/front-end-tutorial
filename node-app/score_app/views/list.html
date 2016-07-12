@@ -1,0 +1,29 @@
+<a ng-href="#/users/new">新建</a>
+<table border="1">
+	<tr>
+		<th>序号</th>
+		<th>姓名</th>
+		<th>学生编号</th>		
+		<th>数学成绩</th>
+		<th>语文成绩</th>
+		<th>英语成绩</th>
+		<th>教学学年</th>
+		<th>教学学期</th>
+		<th>出生日期</th>
+	</tr>
+	<tr ng-repeat="user in users">
+		<td>{{$index + 1}}</td>
+		<td>
+			<a ng-href="#/users/{{user.ID}}">编辑</a>
+			<button ng-click="delete(user.ID)">删除</button>
+		</td>
+		<td>{{user.NAME}}</td>
+		<td>{{user.STU_NUM}}</td>
+		<td>{{user.SCO_MATH}}</td>
+		<td>{{user.SCO_ZH}}</td>
+		<td>{{user.SCO_EN}}</td>
+		<td>{{user.ACADEMIC_YEAR}}</td>
+		<td>{{user.SEMESTER}}</td>
+		<td>{{user.BIRTHDAY}}</td>
+	</tr>
+</table>

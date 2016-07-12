@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css" />
+    <script data-require="angular.js@1.5.3" data-semver="1.5.3" src="../../lib/angular/angular.js"></script>
+
+	<script type="text/javascript" src="../../lib/jquery.js"></script>
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <script src="pageSelect.directive.js"></script>
+    <script src=smart-table.debug.js></script>
+  </head>
+
+<body ng-controller="mainCtrl">
+	<div class="container-fluid" style="padding: 5px">
+		<!-- Left: Component Panel -->
+		<div class="col-sm-1 container-div">
+
+		</div>
+		<!-- Left: Component Panel End-->
+
+		<!-- Center: Editer Panel -->
+		<div id="center-container" class="col-sm-10 container-div" style="padding-right: 5px; padding-left: 10px;"> 
+
+			<ul class="nav nav-pills">
+				<li class="active">
+					<a data-toggle="pill" href="#ds-status-all">全部</a>
+				</li>
+				<li>
+					<a data-toggle="pill" href="#ds-status-connected">已连接</a>
+				</li>
+				<li>
+					<a data-toggle="pill" href="#ds-status-free">未连接</a>
+				</li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="ds-status-all" class="tab-pane fade in active">
+					<div class="table-responsive">
+						<table id="grid-all" st-table="displayed" class="table table-condensed table-hover table-striped ">
+							<thead>
+								<tr>
+									<th st-ratio="5" st-sort="id" class="text-center">序号</th>
+									<!-- <th st-ratio="20" st-sort="id">ID</th> -->
+									<th st-ratio="20" st-sort="firstName" class="text-center">状态</th>
+									<th st-ratio="20" st-sort="lastName" class="text-center">表名</th>
+									<th st-ratio="10" st-sort="age" class="text-center">修改时间</th>
+									<th st-ratio="30" st-sort="email" class="text-center">备注</th>
+									<th st-ratio="20" st-sort="balance" class="text-center">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="row in displayed">
+									<td st-ratio="5"> <input type="checkbox" class="text-center"> {{row.id}}</td>
+									<td st-ratio="20" class="text-center">{{row.firstName}}</td>
+									<td st-ratio="20" class="text-center">{{row.lastName | uppercase}}</td>
+									<td st-ratio="10" class="text-center">{{row.age}}</td>
+									<td st-ratio="30" class="text-center">{{row.email}}</td>
+									<!-- <td st-ratio="20">{{row.balance | currency}}</td> -->
+
+									<td st-ratio="10" class="text-center"><a ng-href="#">连接</a> &nbsp; <a ng-href="#">查看</a></td>
+								</tr>
+							</tbody>
+							<tfoot style="background-color: #fff">
+								<tr>
+									<td colspan="6" class="text-center">
+										<!-- <div st-items-by-page="10" st-pagination="" st-template="pagination.custom.html"></div> -->
+
+										<div st-items-by-page="10" st-pagination="" class="nav nav-pills pull-right">
+											<nav ng-if="pages.length >= 2">
+												<ul class="pagination">
+													<li>
+														<a ng-click="selectPage(1)">首页</a>
+													</li>
+													<li>
+														<a ng-click="selectPage(currentPage - 1)">&lt;</a>
+													</li>
+													<li>
+														<a>
+															<page-select/> of {{numPages}}</a>
+													</li>
+													<li>
+														<a ng-click="selectPage(currentPage + 1)">&gt;</a>
+													</li>
+													<li>
+														<a ng-click="selectPage(numPages)">末页</a>
+													</li>
+												</ul>
+											</nav>			
+										</div>
+
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+
+				<div id="ds-status-connected" class="tab-pane fade">
+					<table id="grid-connected" class="table table-condensed table-hover table-striped" data-selection="true" data-multi-select="true" data-row-select="true" data-keep-selection="true">
+						<thead>
+							<tr>
+								<th data-column-id="id" data-identifier="true" data-type="numeric" data-order="asc" data-width="50px" data-align="center" data-header-align="center">ID</th>
+								<th data-column-id="sender" data-order="asc" data-align="center" data-header-align="center" data-width="75px" data-formatter="link">状态</th>
+								<th data-column-id="received" data-css-class="cell" data-filterable="true" data-width="40%" data-align="center" data-header-align="center">表名</th>
+								<th data-column-id="link" data-sortable="false" data-width="100px" data-align="center" data-header-align="center">修改时间</th>
+								<th data-column-id="status" data-type="numeric" data-visible="true" data-width="20%" data-align="center" data-header-align="center">备注</th>
+								<th data-column-id="hidden" data-visible="true" data-width="100" data-align="center" data-header-align="center">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>me@rafaelstaib.com</td>
+								<td>11.12.2014</td>
+								<td>Link</td>
+								<td>999</td>
+								<td>Hidden value 1</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>me@rafaelstaib.com</td>
+								<td>12.12.2014</td>
+								<td>Link</td>
+								<td>999</td>
+								<td>Hidden value 1</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>me@rafaelstaib.com</td>
+								<td>10.12.2014</td>
+								<td>Link</td>
+								<td>2</td>
+								<td>Hidden value 1</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>mo@rafaelstaib.com</td>
+								<td>12.08.2014</td>
+								<td>Link</td>
+								<td>999</td>
+								<td>Hidden value 1</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>ma@rafaelstaib.com</td>
+								<td>12.06.2014</td>
+								<td>Link</td>
+								<td>3</td>
+								<td>Hidden value 1</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>me@rafaelstaib.com</td>
+								<td>12.12.2014</td>
+								<td>Link</td>
+								<td>999</td>
+								<td>Hidden value 1</td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>ma@rafaelstaib.com</td>
+								<td>12.11.2014</td>
+								<td>Link</td>
+								<td>999</td>
+								<td>Hidden value 1</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>mo@rafaelstaib.com</td>
+								<td>15.12.2014</td>
+								<td>Link</td>
+								<td>999</td>
+								<td>Hidden value 1</td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td>me@rafaelstaib.com</td>
+								<td>24.12.2014</td>
+								<td>Link</td>
+								<td>0</td>
+								<td>Hidden value 1</td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td>ma@rafaelstaib.com</td>
+								<td>14.12.2014</td>
+								<td>Link</td>
+								<td>1</td>
+								<td>Hidden value 1</td>
+							</tr>
+							<tr>
+								<td>11</td>
+								<td>mo@rafaelstaib.com</td>
+								<td>12.12.2014</td>
+								<td>Link</td>
+								<td>999</td>
+								<td>Hidden value 1</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="ds-status-free" class="tab-pane fade">
+					<h3>Menu 2</h3>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+				</div>
+			</div>
+
+
+		</div>
+		<!-- Center: Editer Panel End-->
+
+		<!-- Right: Congiguration Panel -->
+		<div id="east-container" class="col-sm-1 container-div" style="padding-right: 5px; padding-left: 5px;">    
+
+		</div>
+		<!-- Right: Congiguration Panel End-->
+
+	</div>
+
+
+
+
+</body>
+
+</html>

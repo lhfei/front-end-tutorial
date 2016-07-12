@@ -1,0 +1,35 @@
+{
+  "name": "datafun-app",
+  "authors": [
+    "Hefei Li"
+  ],
+  "description": "datafun front end app.",
+  "main": "app",
+  "keywords": [
+    "datafun"
+  ],
+  "license": "MIT",
+  "homepage": "index",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5",
+    "highcharts": "^4.2.4"
+  },
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5",
+    "highcharts": "^4.2.4",
+    "grunt": "^1.0.1",
+    "dragula.js": "dragula#^3.7.0"
+  }
+}

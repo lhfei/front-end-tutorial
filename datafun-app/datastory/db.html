@@ -1,0 +1,507 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>JDCharts - Column Chart Example</title>
+
+        <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+        <style type="text/css">
+            .container-div {
+                /* height: 500px;
+                border-width: 1px;
+                border:dotted;  */
+            }
+            .icon-list{
+                padding: 10px 10px 10px 10px
+            }
+
+        </style>
+    </head>
+<body>
+    <!-- <div id="methods" style="padding: 5px;margin: 5px 5px 5px 5px; border: dotted; border-width: 1px;">
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.drawChart()">Draw Chart</button>
+    
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.addseries()">Add Series</button>
+    
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.setWidth(200)">Set Width</button>
+    
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.moveTo('new-container')">Move To</button>
+    
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.setTitle('New Title')">Set Title</button>
+        
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.getTextEditor()">Get TextEditer</button>  
+    
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.getEditPanel()">Create EditPanel</button>
+    
+    </div> -->
+    
+<div class="container-fluid" style="padding: 5px">
+    <!-- Left: Component Panel -->
+    <div class="col-sm-2 container-div">
+        <!-- Layout panel -->
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">Layout</div>
+                <div class="panel-body">
+                    <div class="row text-center icon-list">
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/layer_grid.png" class="img-rounded" alt="Grid Layout" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/tab-new.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/table_tab.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div > <!-- Layout panel end -->
+
+        <!-- Chart panel -->
+        <div class="row">
+            <div class="panel panel-success  text-center">
+                <div class="panel-heading text-center"> Chart</div>
+                <div class="panel-body">
+                    <div class="row text-center icon-list">
+                       <div class="col-sm-4">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.drawChart('column')">
+                                <img src="../icons/f-analytics_256-32.png" class="img-rounded" alt="Cinque Terre">
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.drawChart('pie')">
+                                <img src="../icons/Analytics-32.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.createGrid()">
+                                <img src="../icons/grid.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>          
+                    </div>
+
+                    <div class="row text-center icon-list">
+                       <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/web-space-px-png.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/pie_chart_analystic_report_1-32.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/line-chart-32.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>          
+                    </div>                                                          
+                </div>
+            </div>
+        </div ><!-- Chart panel End-->
+
+        <!-- Widget panel -->
+        <div class="row">
+            <div class="panel panel-warning">
+                <div class="panel-heading text-center">Widget</div>
+                <div class="panel-body">
+                    <div class="row text-center icon-list">
+                       <div class="col-sm-4">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.getTextEditor();">
+                                <img src="../icons/gtk-edit.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/datetime-32.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/numeric-stepper-32.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>          
+                    </div>
+                </div>
+            </div>
+        </div ><!-- Widget panel End-->
+    </div><!-- Left: Component Panel End-->
+
+    <!-- Center: Editer Panel -->
+    <div id="center-container" class="col-sm-7 container-div" style="padding-right: 5px; padding-left: 10px;">    
+		<div class="row">
+			<div class="col-sm-6">
+<div id="wrap-div-column-chart-_6lf2kmq6b" class="col-xs-12 editer-wrap">
+	<div id="column-chart-_6lf2kmq6b" data-highcharts-chart="0">
+		<div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 752px; height: 200px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+			<svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="752" height="200">
+				<desc>Created with Highcharts 4.2.3</desc>
+				<defs>
+					<clipPath id="highcharts-1">
+						<rect x="0" y="0" width="675" height="66"/>
+					</clipPath>
+				</defs>
+				<rect x="0" y="0" width="752" height="200" fill="#FFFFFF" class=" highcharts-background"/>
+				<g class="highcharts-grid" zIndex="1"/>
+				<g class="highcharts-grid" zIndex="1">
+					<path fill="none" d="M 67 119.5 L 742 119.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"/>
+					<path fill="none" d="M 67 52.5 L 742 52.5" stroke="#D8D8D8" stroke-width="1" zIndex="1" opacity="1"/>
+				</g><g class="highcharts-axis" zIndex="2">
+					<path fill="none" d="M 122.5 119 L 122.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 179.5 119 L 179.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 235.5 119 L 235.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 291.5 119 L 291.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 347.5 119 L 347.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 404.5 119 L 404.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 460.5 119 L 460.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 516.5 119 L 516.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 572.5 119 L 572.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 629.5 119 L 629.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 685.5 119 L 685.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 742.5 119 L 742.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 66.5 119 L 66.5 129" stroke="#C0D0E0" stroke-width="1" opacity="1"/>
+					<path fill="none" d="M 67 119.5 L 742 119.5" stroke="#C0D0E0" stroke-width="1" zIndex="7"/>
+				</g><g class="highcharts-axis" zIndex="2">
+					<text x="28.09375" zIndex="7" text-anchor="middle" transform="translate(0,0) rotate(270 28.09375 86)" class=" highcharts-yaxis-title" style="color:#707070;fill:#707070;" y="86">Sales</text>
+				</g><g class="highcharts-series-group" zIndex="3">
+					<g class="highcharts-series highcharts-series-0 highcharts-tracker" zIndex="0.1" transform="translate(67,53) scale(1 1)" style="" clip-path="url(#highcharts-1)">
+						<rect x="14.5" y="31.5" width="27" height="35" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="70.5" y="39.5" width="27" height="27" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="126.5" y="38.5" width="27" height="28" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="182.5" y="33.5" width="27" height="33" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="239.5" y="23.5" width="27" height="43" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="295.5" y="4.5" width="27" height="62" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="351.5" y="19.5" width="27" height="47" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="407.5" y="16.5" width="27" height="50" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="464.5" y="27.5" width="27" height="39" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="520.5" y="34.5" width="27" height="32" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="576.5" y="27.5" width="27" height="39" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+						<rect x="632.5" y="24.5" width="27" height="42" stroke="#FFFFFF" stroke-width="1" fill="#7cb5ec" rx="0" ry="0"/>
+					</g><g class="highcharts-markers highcharts-series-0" zIndex="0.1" transform="translate(67,53) scale(1 1)" clip-path="none"/>
+				</g><g class="highcharts-button" style="cursor:default;" stroke-linecap="round" zIndex="3" transform="translate(718,10)">
+					<title>Chart context menu</title>
+					<rect x="0.5" y="0.5" width="24" height="22" fill="white" stroke="none" stroke-width="1" rx="2" ry="2"/>
+					<path fill="#E0E0E0" d="M 6 6.5 L 20 6.5 M 6 11.5 L 20 11.5 M 6 16.5 L 20 16.5" stroke="#666" stroke-width="3" zIndex="1"/>
+					<text x="0" zIndex="1" style="color:black;fill:black;" y="12"/>
+				</g>
+				<text x="376" text-anchor="middle" class="highcharts-title" zIndex="4" style="color:#333333;font-size:18px;fill:#333333;width:688px;" y="24">
+					<tspan>JD Datafun</tspan>
+				</text><g class="highcharts-legend" zIndex="7" transform="translate(334,156)">
+					<g zIndex="1">
+						<g>
+							<g class="highcharts-legend-item" zIndex="1" transform="translate(8,3)">
+								<text x="21" style="color:#333333;font-size:12px;font-weight:bold;cursor:pointer;fill:#333333;" text-anchor="start" zIndex="2" y="15">
+									<tspan>Series 1</tspan>
+								</text>
+								<rect x="0" y="4" width="16" height="12" zIndex="3" fill="#7cb5ec"/>
+							</g>
+						</g>
+					</g>
+				</g><g class="highcharts-axis-labels highcharts-xaxis-labels" zIndex="7">
+					<text x="95.125" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">0</text>
+					<text x="151.375" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">1</text>
+					<text x="207.625" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">2</text>
+					<text x="263.875" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">3</text>
+					<text x="320.125" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">4</text>
+					<text x="376.375" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">5</text>
+					<text x="432.625" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">6</text>
+					<text x="488.875" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">7</text>
+					<text x="545.125" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">8</text>
+					<text x="601.375" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">9</text>
+					<text x="657.625" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">10</text>
+					<text x="713.875" style="color:#606060;cursor:default;font-size:11px;fill:#606060;" text-anchor="middle" transform="translate(0,0)" y="138" opacity="1">11</text>
+				</g><g class="highcharts-axis-labels highcharts-yaxis-labels" zIndex="7">
+					<text x="52" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:238px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="122" opacity="1">0</text>
+					<text x="52" style="color:#606060;cursor:default;font-size:11px;fill:#606060;width:238px;text-overflow:clip;" text-anchor="end" transform="translate(0,0)" y="56" opacity="1">80</text>
+				</g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;pointer-events:none;white-space:nowrap;" transform="translate(265,-9999)" opacity="0" visibility="visible">
+					<path fill="none" d="M 3.5 0.5 L 107.5 0.5 C 110.5 0.5 110.5 0.5 110.5 3.5 L 110.5 44.5 C 110.5 47.5 110.5 47.5 107.5 47.5 L 60.5 47.5 54.5 53.5 48.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"/>
+					<path fill="none" d="M 3.5 0.5 L 107.5 0.5 C 110.5 0.5 110.5 0.5 110.5 3.5 L 110.5 44.5 C 110.5 47.5 110.5 47.5 107.5 47.5 L 60.5 47.5 54.5 53.5 48.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"/>
+					<path fill="none" d="M 3.5 0.5 L 107.5 0.5 C 110.5 0.5 110.5 0.5 110.5 3.5 L 110.5 44.5 C 110.5 47.5 110.5 47.5 107.5 47.5 L 60.5 47.5 54.5 53.5 48.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"/>
+					<path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 107.5 0.5 C 110.5 0.5 110.5 0.5 110.5 3.5 L 110.5 44.5 C 110.5 47.5 110.5 47.5 107.5 47.5 L 60.5 47.5 54.5 53.5 48.5 47.5 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#7cb5ec" stroke-width="1"/>
+					<text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20">
+						<tspan style="font-size: 10px">4</tspan>
+						<tspan style="fill:#7cb5ec" x="8" dy="15">●</tspan>
+						<tspan dx="0"> Series 1: </tspan>
+						<tspan style="font-weight:bold" dx="0">52.6</tspan>
+					</text>
+				</g>
+				<text x="742" text-anchor="end" zIndex="8" style="cursor:pointer;color:#909090;font-size:9px;fill:#909090;" y="195"/>
+			</svg>
+		</div>
+	</div>
+</div>			
+			</div>
+			
+			<div class="col-sm-6">
+
+
+<div id="wrap-div_kkadjid3r" class="col-xs-12 editer-wrap">
+	<form id="editer-form-_kkadjid3r" class="form-inline" role="form">
+		<div class="form-group col-sm-4">
+			<label for="colname-_kkadjid3r">表格列名:</label>
+			<select class="form-control" id="colname-_kkadjid3r" name="colname">
+				<option value="text">学生编号</option>
+				<option value="text">学生姓名</option>
+			</select>
+		</div>
+		<div class="form-group col-sm-4">
+			<label for="colrule-_kkadjid3r">过滤规则:</label>
+			<select class="form-control" id="colrule-_kkadjid3r" name="colrule">
+				<option value="LEFT">开始于</option>
+				<option value="RIGHT">结束于</option>
+				<option value="ANY">包含</option>
+				<option value="EXACT">不包含</option>
+			</select>
+		</div>
+		<div class="form-group col-sm-4">
+			<label for="colvalue-_kkadjid3r">过滤字符:</label>
+			<input type="text" class="form-control" id="colvalue-_kkadjid3r" name="colvalue" style="width: 60%" placeholder="请输入需要过滤的字符">
+			</div>
+		</form>
+	</div>
+	<div id="wrap-div-pie-chart-_1wr2gvsye" class="col-xs-12 editer-wrap">
+		<div id="pie-chart-_1wr2gvsye" data-highcharts-chart="1">
+			<div class="highcharts-container" id="highcharts-2" style="position: relative; overflow: hidden; width: 752px; height: 200px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+				<svg version="1.1" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;" xmlns="http://www.w3.org/2000/svg" width="752" height="200">
+					<desc>Created with Highcharts 4.2.3</desc>
+					<defs>
+						<clipPath id="highcharts-3">
+							<rect x="0" y="0" width="732" height="132"/>
+						</clipPath>
+					</defs>
+					<rect x="0" y="0" width="752" height="200" fill="#FFFFFF" class=" highcharts-background"/>
+					<g class="highcharts-series-group" zIndex="3">
+						<path fill="#2b908f" fill-opacity="0.25" zIndex="-1" d="M 0 0"/>
+						<g class="highcharts-series highcharts-series-0 highcharts-tracker" zIndex="0.1" transform="translate(10,53) scale(1 1)" style="">
+							<path fill="#7cb5ec" d="M 365.9918530718522 26.000000829655484 A 40 40 0 0 1 383.6788969495994 30.118854496470632 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#434348" d="M 383.714769249675 30.136551331045 A 40 40 0 0 1 395.18562652254735 38.646769761390495 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#90ed7d" d="M 395.212965155415 38.67596905966275 A 40 40 0 0 1 403.1465854230604 51.16318122348069 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#f7a35c" d="M 403.16140366607294 51.20033522112143 A 40 40 0 0 1 405.95001041579866 67.99916677082713 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#8085e9" d="M 405.9479912743575 68.03911577500129 A 40 40 0 0 1 398.55513826650133 89.2414064214922 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#f15c80" d="M 398.5318805863857 89.2739499336306 A 40 40 0 0 1 371.3358996965964 105.64250464372631 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#e4d354" d="M 371.29625453061016 105.64782072128293 A 40 40 0 0 1 347.23839313750534 101.3270732999097 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#2b908f" d="M 347.20307545089594 101.30829403263897 A 40 40 0 0 1 329.61793876203865 82.62364641338442 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#f45b5b" d="M 329.60133330942494 82.58725604638764 A 40 40 0 0 1 326.1492317057537 62.54800545216304 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#91e8e1" d="M 326.1527036251087 62.508156416507724 A 40 40 0 0 1 331.07865302576 46.493602959420286 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#7cb5ec" d="M 331.0981768802215 46.458691371463985 A 40 40 0 0 1 344.9430441588105 31.991109828425806 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+							<path fill="#434348" d="M 344.977063571791 31.97006988053777 A 40 40 0 0 1 365.9444408024771 26.000038585323978 L 366 66 A 0 0 0 0 0 366 66 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round" transform="translate(0,0)"/>
+						</g><g class="highcharts-markers highcharts-series-0" zIndex="0.1" transform="translate(10,53) scale(1 1)"/>
+					</g><g class="highcharts-button" style="cursor:default;" stroke-linecap="round" zIndex="3" transform="translate(718,10)">
+						<title>Chart context menu</title>
+						<rect x="0.5" y="0.5" width="24" height="22" fill="white" stroke="none" stroke-width="1" rx="2" ry="2"/>
+						<path fill="#E0E0E0" d="M 6 6.5 L 20 6.5 M 6 11.5 L 20 11.5 M 6 16.5 L 20 16.5" stroke="#666" stroke-width="3" zIndex="1"/>
+						<text x="0" zIndex="1" style="color:black;fill:black;" y="12"/>
+					</g>
+					<text x="376" text-anchor="middle" class="highcharts-title" zIndex="4" style="color:#333333;font-size:18px;fill:#333333;width:688px;" y="24">
+						<tspan>JD Datafun</tspan>
+					</text><g class="highcharts-data-labels highcharts-series-0 highcharts-tracker" zIndex="6" visibility="visible" transform="translate(10,53) scale(1 1)" opacity="1" style="">
+						<path fill="none" d="M 394.3238075793812 0 C 389.3238075793812 0 380.1069885735029 5.626223628241874 377.604135762075 16.337700081295736 L 375.10128295064703 27.0491765343496" stroke="#7cb5ec" stroke-width="1"/>
+						<path fill="none" d="M 429.1291665173345 27 C 424.1291665173345 27 418.34905077378215 32.77987231987241 409.06131595907885 38.67376594054021 L 399.77358114437556 44.567659561208" stroke="#90ed7d" stroke-width="1"/>
+						<path fill="none" d="M 439.9637585982667 54 C 434.9637585982667 54 427.17046212299664 55.89185656715145 416.31763819794884 57.68523685362458 L 405.46481427290104 59.47861714009771" stroke="#f7a35c" stroke-width="1"/>
+						<path fill="none" d="M 439.37397165588675 81 C 434.37397165588675 81 424.5346104239355 86.43769513712598 414.1494376067856 82.81165245150686 L 403.7642647896358 79.18560976588773" stroke="#8085e9" stroke-width="1"/>
+						<path fill="none" d="M 407.0719729289915 125.99010559259006 C 402.0719729289915 125.99010559259006 397.94946173710673 119.13409352486548 392.28100884826523 109.70707693174418 L 386.61255595942373 100.28006033862289" stroke="#f15c80" stroke-width="1"/>
+						<path fill="none" d="M 337.6761924206188 132 C 342.6761924206188 132 355.0153504748639 127.01915662158832 356.9642399067429 116.19317722098394 L 358.91312933862184 105.36719782037956" stroke="#e4d354" stroke-width="1"/>
+						<path fill="none" d="M 292.62602834411325 81 C 297.62602834411325 81 320.8448650447576 108.48545383038578 328.8562599561716 100.94771202176895 L 336.86765486758554 93.40997021315212" stroke="#2b908f" stroke-width="1"/>
+						<path fill="none" d="M 292.0362414017333 54 C 297.0362414017333 54 304.8964956585395 76.50532042315285 315.7374399771857 74.64147325130315 L 326.57838429583194 72.77762607945346" stroke="#f45b5b" stroke-width="1"/>
+						<path fill="none" d="M 302.8708334826655 27 C 307.8708334826655 27 321.23778062938624 23.100772535894677 329.1794647112693 30.711925795655297 L 337.1211487931524 38.32307905541592" stroke="#7cb5ec" stroke-width="1"/>
+						<path fill="none" d="M 337.6761924206188 0 C 342.6761924206188 0 349.0661306253452 6.357363673273738 352.0705268047194 16.9391217312413 L 355.07492298409363 27.520879789208863" stroke="#434348" stroke-width="1"/>
+						<g zIndex="1" style="" transform="translate(399,-10)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(0,-9999)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(434,17)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(445,44)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(444,71)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(412,116)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(298,122)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(252,71)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(252,44)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(0,-9999)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(263,17)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g><g zIndex="1" style="" transform="translate(298,-10)">
+							<text x="5" zIndex="1" style="font-size:11px;font-weight:bold;color:#000000;text-shadow:0 0 6px #FFFFFF, 0 0 3px #FFFFFF;fill:#000000;text-rendering:geometricPrecision;" y="16">
+								<tspan>Slice</tspan>
+							</text>
+						</g>
+					</g><g class="highcharts-legend" zIndex="7">
+						<g zIndex="1">
+							<g/>
+						</g>
+					</g><g class="highcharts-tooltip" zIndex="8" style="cursor:default;padding:0;pointer-events:none;white-space:nowrap;" transform="translate(221,-9999)" opacity="0" visibility="visible">
+						<path fill="none" d="M 3.5 0.5 L 107.5 0.5 C 110.5 0.5 110.5 0.5 110.5 3.5 L 110.5 44.5 C 110.5 47.5 110.5 47.5 107.5 47.5 L 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.049999999999999996" stroke-width="5" transform="translate(1, 1)"/>
+						<path fill="none" d="M 3.5 0.5 L 107.5 0.5 C 110.5 0.5 110.5 0.5 110.5 3.5 L 110.5 44.5 C 110.5 47.5 110.5 47.5 107.5 47.5 L 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.09999999999999999" stroke-width="3" transform="translate(1, 1)"/>
+						<path fill="none" d="M 3.5 0.5 L 107.5 0.5 C 110.5 0.5 110.5 0.5 110.5 3.5 L 110.5 44.5 C 110.5 47.5 110.5 47.5 107.5 47.5 L 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" isShadow="true" stroke="black" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)"/>
+						<path fill="rgba(249, 249, 249, .85)" d="M 3.5 0.5 L 107.5 0.5 C 110.5 0.5 110.5 0.5 110.5 3.5 L 110.5 44.5 C 110.5 47.5 110.5 47.5 107.5 47.5 L 3.5 47.5 C 0.5 47.5 0.5 47.5 0.5 44.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5" stroke="#2b908f" stroke-width="1"/>
+						<text x="8" zIndex="1" style="font-size:12px;color:#333333;fill:#333333;" y="20">
+							<tspan style="font-size: 10px">Slice</tspan>
+							<tspan style="fill:#2b908f" x="8" dy="15">●</tspan>
+							<tspan dx="0"> Series 1: </tspan>
+							<tspan style="font-weight:bold" dx="0">60.4</tspan>
+						</text>
+					</g>
+					<text x="742" text-anchor="end" zIndex="8" style="cursor:pointer;color:#909090;font-size:9px;fill:#909090;" y="195"/>
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div id="wrap-div_mo3x4ue7t" class="col-xs-12 editer-wrap">
+		<form id="editer-form-_mo3x4ue7t" class="form-inline" role="form">
+			<div class="form-group col-sm-4">
+				<label for="colname-_mo3x4ue7t">表格列名:</label>
+				<select class="form-control" id="colname-_mo3x4ue7t" name="colname">
+					<option value="text">订单编号</option>
+					<option value="text">销售人员</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-4">
+				<label for="colrule-_mo3x4ue7t">过滤规则:</label>
+				<select class="form-control" id="colrule-_mo3x4ue7t" name="colrule">
+					<option value="LEFT">开始于</option>
+					<option value="RIGHT">结束于</option>
+					<option value="ANY">包含</option>
+					<option value="EXACT">不包含</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-4">
+				<label for="colvalue-_mo3x4ue7t">过滤字符:</label>
+				<input type="text" class="form-control" id="colvalue-_mo3x4ue7t" name="colvalue" style="width: 60%" placeholder="请输入需要过滤的字符">
+				</div>
+			</form>
+		</div>
+		<div id="wrap-div_xxpwbc3mh" class="col-xs-12 editer-wrap">
+			<div class="table-responsive">
+				<table id="jd-grid-_xxpwbc3mh" class="table table-condensed table-hover table-striped " data-selection="true" data-multi-select="true" data-row-select="true" data-keep-selection="true">
+					<thead>
+						<tr>
+							<th dataindex="name" flex="1" align="center" hidden="false">姓名</th>
+							<th dataindex="stu_num" flex="2" align="center">编号</th>
+							<th dataindex="score_math" flex="2" align="center">数学</th>
+							<th dataindex="score_zh" flex="2" align="center">语文</th>
+							<th dataindex="score_en" flex="2" align="center">英语</th>
+							<th dataindex="create_time" flex="2" align="center">学年</th>
+							<th dataindex="latest_time" flex="1" align="center" hidden="true">学期</th>
+						</tr>
+					</thead>
+				</table>
+				<ul id="jd-grid-pagination-_xxpwbc3mh"/>
+			</div>
+		</div>
+		<div id="wrap-div_e9na4jof8" class="col-xs-12 editer-wrap editer-active">
+			<form id="editer-form-_e9na4jof8" class="form-inline" role="form">
+				<div class="form-group col-sm-4">
+					<label for="colname-_e9na4jof8">表格列名:</label>
+					<select class="form-control" id="colname-_e9na4jof8" name="colname">
+						<option value="text">订单编号</option>
+						<option value="text">销售人员</option>
+					</select>
+				</div>
+				<div class="form-group col-sm-4">
+					<label for="colrule-_e9na4jof8">过滤规则:</label>
+					<select class="form-control" id="colrule-_e9na4jof8" name="colrule">
+						<option value="LEFT">开始于</option>
+						<option value="RIGHT">结束于</option>
+						<option value="ANY">包含</option>
+						<option value="EXACT">不包含</option>
+					</select>
+				</div>
+				<div class="form-group col-sm-4">
+					<label for="colvalue-_e9na4jof8">过滤字符:</label>
+					<input type="text" class="form-control" id="colvalue-_e9na4jof8" name="colvalue" style="width: 60%" placeholder="请输入需要过滤的字符">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>			
+			
+			</div>
+		
+		</div>
+    </div><!-- Center: Editer Panel End-->
+
+    <!-- Right: Congiguration Panel -->
+    <div id="east-container" class="col-sm-3 container-div" style="padding-right: 5px; padding-left: 5px;">    
+        
+    </div><!-- Right: Congiguration Panel End-->
+
+</div>
+
+    <link rel="stylesheet" type="text/css" href="../src/css/jdcharts.css">
+    <!-- Scripts -->
+    <!--3rd libs-->
+    <script type="text/javascript" src="../lib/jquery.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../lib/highcharts/highcharts.src.js"></script>   
+    <script type="text/javascript" src="../lib/highcharts/modules/exporting.js"></script>  
+
+    <!-- local data -->
+    <script type="text/javascript" src="../src/model/DatasetModel.js"></script>
+    <script type="text/javascript" src="../src/model/Option.js"></script>
+    <script type="text/javascript" src="../src/store/DatasourceStore.js"></script>  
+
+    <script type="text/javascript" src="../src/DataFun.js"></script>
+    <script type="text/javascript" src="../src/util/ID.js"></script>
+
+    <script type="text/javascript" src="../src/view/form/AbstractView.js"></script>
+    <script type="text/javascript" src="../src/view/form/style/StyleFactory.js"></script>
+
+    <script type="text/javascript" src="../src/locale/editer-lang-zh_CN.js"></script>
+    
+    <script type="text/javascript" src="../src/view/form/editer/TextEditer.js"></script>
+    <script type="text/javascript" src="../src/view/chart/JDChart.js"></script>
+    <script type="text/javascript" src="../src/view/form/style//ColumnChartStyle.js"></script>
+    
+    <script type="text/javascript" src="../src/view/panel/EditPanel.js"></script>
+    <script type="text/javascript" src="../src/view/panel/ConfigurePanel.js"></script>
+
+    <script type="text/javascript" src="../src/view/grid/AbstractGrid.js"></script>
+    <script type="text/javascript" src="../src/view/grid/BasicGrid.js"></script>
+    <script type="text/javascript" src="../src/view/grid/bootstrap-paginator.js"></script>
+
+    <script type="text/javascript" src="../lib/jquery-bootgrid/jquery.bootgrid.js"></script>
+    
+
+
+    <script src="DashboardController.js"></script>
+</body>
+</html>

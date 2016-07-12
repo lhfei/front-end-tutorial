@@ -1,0 +1,21 @@
+{
+  "name": "angular-tutorial",
+  "version": "1.0.0",
+  "description": "Angular examples.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run scripts && npm run styles",
+    "deploy": "npm run build && npm run deployment && npm run sync",
+    "test": "npm run lint && browserify ./*.js | tape-run",
+    "lint": "jshint . --reporter node_modules/jshint-stylish/index.js"
+  },
+  "author": "Hefei Li",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.6",
+    "bootstrap": "^3.3.6",
+    "jquery": "^3.0.0",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0"
+  }
+}

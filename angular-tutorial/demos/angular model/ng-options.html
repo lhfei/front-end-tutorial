@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css" />
+    <script data-require="angular.js@1.5.3" data-semver="1.5.3" src="../../lib/angular.js"></script>
+
+    <script type="text/javascript" src="../../lib/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../../lib/bootstrap/js/bootstrap.js"></script>
+
+  </head>
+
+<body>
+    <div class="container-fluid" style="padding: 10px">
+
+        <div class="panel panel-default" ng-app="comboApp" ng-controller="comboCtrl">
+            <div class="panel-heading">
+                Angular Service
+            </div>
+            <div class="panel-body">
+                <div ng-app="comboApp" ng-controller="comboCtrl">
+
+                    <p>Select a car:</p>
+
+                    <select ng-model="selectedCar" ng-options="y.brand for (x, y) in cars">
+                    </select>
+
+                    <h1>You selected: {{selectedCar.brand}}</h1>
+                    <h2>Model: {{selectedCar.model}}</h2>
+                    <h3>Color: {{selectedCar.color}}</h3>
+
+                    <p>The visible text inside the dropdown list can also be a property of the value object.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        var app = angular.module('comboApp', []);
+        app.controller('comboCtrl', function ($scope) {
+            $scope.cars = {
+                car01 : {brand : "Ford", model : "Mustang", color : "red"},
+                car02 : {brand : "Fiat", model : "500", color : "white"},
+                car03 : {brand : "Volvo", model : "XC90", color : "black"}
+            }
+        })
+        
+
+    </script>
+
+</body>
+
+</html>

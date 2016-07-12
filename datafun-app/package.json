@@ -1,0 +1,54 @@
+{
+  "name": "datafun-app",
+  "namespace": "com.jcloud",
+  "title": "Datafun App",
+  "version": "1.0.0-SNAPSHOT",
+  "description": "JDCloud datafun front end app.",
+  "homepage": "http://www.jd.com",
+  "author": {
+    "name": "Hefei Li",
+    "email": "lihefei@jd.com",
+    "url": "http://www.jd.com"
+  },
+  "bugs": "https://github.com/rstaib/jquery-bootgrid/issues",
+  "scripts": {
+    "test": "grunt"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "jQuery",
+    "Bootstrap",
+    "Plugin",
+    "Component",
+    "Control",
+    "UI",
+    "Grid",
+    "Table",
+    "Data",
+    "Sorting",
+    "Filtering",
+    "HTML5",
+    "Accessibility"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "dragula": "^3.7.0",
+    "highcharts": "^4.2.4",
+    "jquery": "^2.2.3"
+  },
+  "devDependencies": {
+    "angular": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "grunt": "^1.0.1",
+    "highcharts": "^4.2.4",
+    "jquery": "^2.2.3"
+  },
+  "readmeFilename": "README.md"
+}

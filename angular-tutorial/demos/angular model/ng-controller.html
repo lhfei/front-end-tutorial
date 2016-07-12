@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.css" />
+    <script data-require="angular.js@1.5.3" data-semver="1.5.3" src="../../lib/angular.js"></script>
+
+    <script type="text/javascript" src="../../lib/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../../lib/bootstrap/js/bootstrap.js"></script>
+
+  </head>
+
+<body>
+    <div class="container-fluid" style="padding: 10px">
+
+        <div class="panel panel-default" ng-app="listApp" ng-controller="listCtrl">
+            <div class="panel-heading">
+                Angular Repeat
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="city in cites">
+                        {{city.name +' == '+ city.code}} 
+                    </li>
+                </ul>
+
+                <p>Use the orderBy filter sorts the cites array: </p>
+               
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="city in cites | orderBy: 'name' ">
+                        {{city.name +' == '+ city.code}} 
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+       
+
+
+    </div>
+
+    <script type="text/javascript">
+        var app = angular.module('listApp', []);
+
+        app.controller('listCtrl', function ($scope) {
+            $scope.cites = [
+                {name: 'Beijing', code: '010'},
+                {name: 'Shanghai', code: '021'},
+                {name: 'Chongqing', code: '022'},
+            ];
+        })
+        
+
+    </script>
+
+</body>
+
+</html>

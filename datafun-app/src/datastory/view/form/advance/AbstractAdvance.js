@@ -1,0 +1,5 @@
+AbstractAdvance = {}
+
+AbstractAdvance.prototype = {
+	
+}

@@ -1,0 +1,66 @@
+{
+	"success": true,
+	"data": [{
+		"value": "ID",
+		"dataType": "BIGINT",
+		"text": "主键ID",
+		"columnSize": 19,
+		"primaryKey": false
+	},
+	{
+		"value": "NAME",
+		"dataType": "VARCHAR",
+		"text": "学生姓名",
+		"columnSize": 8,
+		"primaryKey": false
+	},
+	{
+		"value": "BIRTHDAY",
+		"dataType": "DATE",
+		"text": "出生日期",
+		"columnSize": 10,
+		"primaryKey": false
+	},
+	{
+		"value": "STU_NUM",
+		"dataType": "VARCHAR",
+		"text": "学生编号",
+		"columnSize": 12,
+		"primaryKey": false
+	},
+	{
+		"value": "SCO_MATH",
+		"dataType": "INT",
+		"text": "数学成绩",
+		"columnSize": 10,
+		"primaryKey": false
+	},
+	{
+		"value": "SCO_ZH",
+		"dataType": "INT",
+		"text": "语文成绩",
+		"columnSize": 10,
+		"primaryKey": false
+	},
+	{
+		"value": "SCO_EN",
+		"dataType": "INT",
+		"text": "英语成绩",
+		"columnSize": 10,
+		"primaryKey": false
+	},
+	{
+		"value": "ACADEMIC_YEAR",
+		"dataType": "VARCHAR",
+		"text": "教学学年",
+		"columnSize": 10,
+		"primaryKey": false
+	},
+	{
+		"value": "SEMESTER",
+		"dataType": "CHAR",
+		"text": "学期",
+		"columnSize": 1,
+		"primaryKey": false
+	}]
+}

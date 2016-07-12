@@ -1,0 +1,23 @@
+{
+  "name": "angular-in-action",
+  "description": "Angular samples.",
+  "main": "index.js",
+  "authors": [
+    "Hefei Li"
+  ],
+  "license": "ISC",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.3"
+  }
+}

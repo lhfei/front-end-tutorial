@@ -1,0 +1,39 @@
+{
+  "name": "node-app",
+  "version": "1.0.0",
+  "description": "Node.js is a platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lhfei/node-app.git"
+  },
+  "keywords": [
+    "Node.js"
+  ],
+  "author": "Hefei Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lhfei/node-app/issues"
+  },
+  "homepage": "https://github.com/lhfei/node-app#readme",
+  "dependencies": {
+    "angular-resource": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.6",
+    "ejs": "^2.4.2",
+    "express": "^4.14.0",
+    "fs": "0.0.2",
+    "jade": "^1.11.0",
+    "multer": "^1.1.0",
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "bootstrap": "^3.3.6",
+    "jquery": "^1.11.3"
+  }
+}

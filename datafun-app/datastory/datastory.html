@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>JDCharts - Column Chart Example</title>
+
+        <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+        <style type="text/css">
+            .container-div {
+                /* height: 500px;
+                border-width: 1px;
+                border:dotted;  */
+            }
+            .icon-list{
+                padding: 10px 10px 10px 10px
+            }
+
+        </style>
+    </head>
+<body>
+    <!-- <div id="methods" style="padding: 5px;margin: 5px 5px 5px 5px; border: dotted; border-width: 1px;">
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.drawChart()">Draw Chart</button>
+    
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.addseries()">Add Series</button>
+    
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.setWidth(200)">Set Width</button>
+    
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.moveTo('new-container')">Move To</button>
+    
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.setTitle('New Title')">Set Title</button>
+        
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.getTextEditor()">Get TextEditer</button>  
+    
+        <button type="button" class="btn btn-primary btn-sm" onclick="javascript: $j.utils.getEditPanel()">Create EditPanel</button>
+    
+    </div> -->
+    
+<div class="container-fluid" style="padding: 5px">
+    <!-- Left: Component Panel -->
+    <div class="col-sm-2 container-div">
+        <!-- Layout panel -->
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">Layout</div>
+                <div class="panel-body">
+                    <div class="row text-center icon-list">
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/layer_grid.png" class="img-rounded" alt="Grid Layout" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/tab-new.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/table_tab.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div > <!-- Layout panel end -->
+
+        <!-- Chart panel -->
+        <div class="row">
+            <div class="panel panel-success  text-center">
+                <div class="panel-heading text-center"> Chart</div>
+                <div class="panel-body">
+                    <div id="chart-panel" class="row text-center icon-list">
+                       <div class="col-sm-4" id="chart-column">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.drawChart('column')">
+                                <img src="../icons/f-analytics_256-32.png" class="img-rounded" alt="Cinque Terre">
+                            </a>
+                        </div>
+                        <div class="col-sm-4" id="chart-pie">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.drawChart('pie')">
+                                <img src="../icons/Analytics-32.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4" id="chart-grid">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.createGrid()">
+                                <img src="../icons/grid.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>          
+                    </div>
+
+                    <div class="row text-center icon-list">
+                       <div class="col-sm-4" id="chart-area">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.drawChart('area')">
+                                <img src="../icons/web-space-px-png.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4" id="chart-line">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.drawChart('line', true)">
+                                <img src="../icons/pie_chart_analystic_report_1-32.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4" id="chart-grid">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.drawChart('line')">
+                                <img src="../icons/line-chart-32.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>          
+                    </div>                                                          
+                </div>
+            </div>
+        </div ><!-- Chart panel End-->
+
+        <!-- Widget panel -->
+        <div class="row">
+            <div class="panel panel-warning">
+                <div class="panel-heading text-center">Widget</div>
+                <div class="panel-body">
+                    <div class="row text-center icon-list">
+                       <div class="col-sm-4">
+                            <a href="#" class="thumbnail" ondblclick="$j.utils.getTextEditor();">
+                                <img src="../icons/gtk-edit.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/datetime-32.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="../icons/numeric-stepper-32.png" class="img-rounded" alt="Cinque Terre" >
+                            </a>
+                        </div>          
+                    </div>
+                </div>
+            </div>
+        </div ><!-- Widget panel End-->
+    </div><!-- Left: Component Panel End-->
+
+    <!-- Center: Editer Panel -->
+    <div id="center-container" class="col-sm-7 container-div" style="padding-right: 5px; padding-left: 10px;">    
+
+    </div><!-- Center: Editer Panel End-->
+
+    <!-- Right: Congiguration Panel -->
+    <div id="east-container" class="col-sm-3 container-div" style="padding-right: 5px; padding-left: 5px;">    
+        
+    </div><!-- Right: Congiguration Panel End-->
+
+</div>
+
+    <link rel="stylesheet" type="text/css" href="../src/css/jdcharts.css">
+    <!-- Scripts -->
+    <!--3rd libs-->
+    <script type="text/javascript" src="../lib/jquery.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../lib/highcharts/highcharts.src.js"></script>
+    <script type="text/javascript" src="../lib/highcharts/highcharts-more.src.js"></script>  
+    <script type="text/javascript" src="../lib/highcharts/modules/exporting.js"></script> 
+    <script type="text/javascript" src="../lib/dragula/dist/dragula.js"></script> 
+    <!-- local data -->
+    <script type="text/javascript" src="../src/model/DatasetModel.js"></script>
+    <script type="text/javascript" src="../src/model/Option.js"></script>
+    <script type="text/javascript" src="../src/store/DatasourceStore.js"></script>  
+
+    <script type="text/javascript" src="../src/DataFun.js"></script>
+    <script type="text/javascript" src="../src/util/ID.js"></script>
+
+    <script type="text/javascript" src="../src/view/form/AbstractView.js"></script>
+
+    <!-- StyleForm Requrireds -->
+    <script type="text/javascript" src="../src/view/form/advance/AbstractAdvance.js"></script>
+    <script type="text/javascript" src="../src/view/form/style/AbstractStyle.js"></script>
+    <script type="text/javascript" src="../src/view/form/style/StyleFactory.js"></script>
+
+    <script type="text/javascript" src="../src/view/form/style//ColumnChartStyle.js"></script>
+    <script type="text/javascript" src="../src/view/form/style/PieChartStyle.js"></script>
+    
+
+    <script type="text/javascript" src="../src/locale/editer-lang.js"></script>
+    
+    <script type="text/javascript" src="../src/view/form/editer/TextEditer.js"></script>
+    <script type="text/javascript" src="../src/view/chart/JDChart.js"></script>
+    
+    <script type="text/javascript" src="../src/view/panel/EditPanel.js"></script>
+    <script type="text/javascript" src="../src/view/panel/ConfigurePanel.js"></script>
+
+    <script type="text/javascript" src="../src/view/grid/AbstractGrid.js"></script>
+    <script type="text/javascript" src="../src/view/grid/BasicGrid.js"></script>
+    <script type="text/javascript" src="../src/view/grid/bootstrap-paginator.js"></script>
+
+    <script type="text/javascript" src="../lib/jquery-bootgrid/jquery.bootgrid.js"></script>
+    
+
+
+    <script src="DataStoryController.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+    "data": [
+        {
+            "id": null,
+            "name": null,
+            "stu_num": null,
+            "birthday": null,
+            "sco_math": 86.9026,
+            "sco_zh": 75.0404,
+            "sco_en": 75.8337,
+            "academic_year": "2013-2014",
+            "semester": "1"
+        },
+        {
+            "id": null,
+            "name": null,
+            "stu_num": null,
+            "birthday": null,
+            "sco_math": 86.9335,
+            "sco_zh": 74.7363,
+            "sco_en": 76.5558,
+            "academic_year": "2013-2014",
+            "semester": "2"
+        },
+        {
+            "id": null,
+            "name": null,
+            "stu_num": null,
+            "birthday": null,
+            "sco_math": 87.1021,
+            "sco_zh": 75.0974,
+            "sco_en": 77.7458,
+            "academic_year": "2014-2015",
+            "semester": "1"
+        },
+        {
+            "id": null,
+            "name": null,
+            "stu_num": null,
+            "birthday": null,
+            "sco_math": 87.8219,
+            "sco_zh": 73.3492,
+            "sco_en": 76.8599,
+            "academic_year": "2014-2015",
+            "semester": "2"
+        },
+        {
+            "id": null,
+            "name": null,
+            "stu_num": null,
+            "birthday": null,
+            "sco_math": 87.0546,
+            "sco_zh": 73.5083,
+            "sco_en": 77.1805,
+            "academic_year": "2015-2015",
+            "semester": "1"
+        },
+        {
+            "id": null,
+            "name": null,
+            "stu_num": null,
+            "birthday": null,
+            "sco_math": 86.6366,
+            "sco_zh": 74.4561,
+            "sco_en": 76.8432,
+            "academic_year": "2015-2015",
+            "semester": "2"
+        }
+    ],
+    "total": 6,
+    "success": true
+}

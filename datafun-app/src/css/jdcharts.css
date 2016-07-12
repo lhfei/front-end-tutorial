@@ -1,0 +1,13 @@
+.container-row {
+	margin-top: -20px;
+	padding: 0px 5px 0px 5px;
+}
+.editer-active {
+	background-color: #5bc0de;
+}
+
+.editer-wrap {
+	border: 1px dotted #ccc;
+	padding: 2px 0px 2px 0px;
+	margin-bottom: 5px;
+}

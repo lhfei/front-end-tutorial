@@ -1,0 +1,40 @@
+/**
+ * [description]
+ * @return {[type]} [description]
+ */
+
+$(function(){
+
+	$j.utils.init('grid-all');
+	$j.utils.init('grid-connected');
+
+
+
+
+
+});
+
+$j.utils = {
+	init: function(id){
+        $("#" +id).bootgrid({
+            formatters: {
+                "link": function(column, row)
+                {
+                    return "<a href=\"#\">" + column.id + ": " + row.id + "</a>";
+                }
+            },
+            selection: true,
+            multiSelect: false,
+            caseSensitive: false
+
+
+
+
+            /*,
+            rowCount: [-1, 10, 50, 75]*/
+
+        });
+    }
+}
+
+
