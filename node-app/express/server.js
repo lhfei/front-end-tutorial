@@ -1,3 +1,10 @@
+/**
+ * Simple Server
+ * @constructor
+ * @param {string} title - The title of the book.
+ * @param {string} author - The author of the book.
+ */
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const multer = require('multer')
