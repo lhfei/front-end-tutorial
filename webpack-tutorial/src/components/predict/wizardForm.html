@@ -1,0 +1,169 @@
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3 ng-click="wizardForm();">预测分析</h3>
+      </div>
+      <!--<div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>-->
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <!--<h2>Form Wizards <small>Sessions</small></h2>-->
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Settings 1</a>
+              </li>
+              <li><a href="#">Settings 2</a>
+            </li>
+          </ul>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="x_content">
+    <!-- Smart Wizard -->
+    <div id="wizardForm" class="form_wizard wizard_horizontal">
+        <ul class="wizard_steps">
+            <li>
+                <a href="#step-1">
+                    <span class="step_no">1</span>
+                    <span class="step_descr">
+                  Step 1<br />
+                  <small>上传数据</small>
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="#step-2">
+                    <span class="step_no">2</span>
+                    <span class="step_descr">
+                  Step 2<br />
+                  <small>选择模型</small>
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="#step-3">
+                    <span class="step_no">3</span>
+                    <span class="step_descr">
+                  Step 3<br />
+                  <small>提交任务</small>
+                </span>
+                </a>
+            </li>
+            <li>
+                <a href="#step-4">
+                    <span class="step_no">4</span>
+                    <span class="step_descr">
+                  Step 4<br />
+                  <small>预测结果</small>
+                </span>
+                </a>
+            </li>
+        </ul>
+        <div id="step-1">
+            <!--<form class="form-horizontal form-label-left">
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+            </form>-->
+        </div>
+    </div>
+
+    <!--<p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
+    <form action="form_upload.html" class="dropzone"></form>--> 
+
+    <div id="dropzone1" class="dropzone" options="dzOptions" callbacks="dzCallbacks" ng-dropzone></div>       
+  </div>
+
+  <div class="clearfix"></div>
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <div id="step-1" ng-show="{{predict.currentStep}} == 1">
+    <h2 class="StepTitle">Step 1 模型说明</h2>
+    <p>
+      根据您提供的数据,给予相应的预测结果信息.
+    </p>
+  </div>
+
+  <div id="step-2" ng-show="{{predict.currentStep}} == 2">
+    <h2 class="StepTitle">Step 2 模型说明</h2>
+    <p>
+      时序预测模型: ......
+    </p>
+    <p>
+      逻辑回归模型: ......
+    </p>
+  </div>
+
+  <div id="step-3" ng-show="{{predict.currentStep}} == 3">
+    <h2 class="StepTitle">Step 3 提交任务</h2>
+    <p>
+      根据您提供的数据,以及所选择的计算模型, 您就可以提交您的作业任务.
+    </p>
+    <p>
+      作业任务提交后将会在后台自动执行,此过程执行的时间可能要持续几分钟,或几十分钟, 甚至更长.当然这完全取于您上传数据记录的大小以及所选择模型的计算复杂度.
+    </p>
+  </div>
+
+  <div id="step-4" ng-show="{{predict.currentStep}} == 4">
+    <h2 class="StepTitle">Step 4 预测结果</h2>
+    <p>任务执行完成后,预测结果将会在这里展示.
+    </p>
+    <p>
+      展示的结果,可以支持多种方式进行查看,包括图,表格,以及摘要说明等等.
+    </p>
+    <p>
+      ......
+    </p>
+  </div>
+
+  <div class="actionBar">
+    <!--<div class="loader">Loading</div>-->
+    <a href="#" class="buttonFinish buttonDisabled btn btn-default">Finish</a>
+    <a href="#" class="buttonNext btn btn-success" ng-click="goStep(1)">Next</a>
+    <a href="#" class="buttonPrevious buttonDisabled btn btn-primary" ng-click="gotStep(-1)">Previous</a>
+  </div>
+</div>
+<!-- End SmartWizard Content -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /page content -->
