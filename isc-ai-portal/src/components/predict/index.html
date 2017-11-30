@@ -1,0 +1,22 @@
+<div ng-controller="PredictCtrl as predict" ng-init="init()">
+	<!-- page content -->
+	<div class="x_panel">
+		<div class="x_title">
+			<div class="container">
+
+				<ng-include src="'../../src/components/predict/taskMan.html'"></ng-include>
+
+				<!--<ng-include src="'src/components/predict/wizardForm.html'"
+					onload="wizardForm()"></ng-include>-->
+
+				<!--<div class="clearfix"></div>-->
+				
+				<ui-view></ui-view>
+			</div>
+			<!--<div class="clearfix"></div>-->
+
+
+		</div>
+	</div>
+	<!-- /page content -->
+</div>

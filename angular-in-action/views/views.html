@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <script data-require="angular.js@1.5.3" data-semver="1.5.3" src="../node_modules/angular/angular.js"></script>
+    <script data-require="angular.js@1.5.7" data-semver="1.5.7" src="../node_modules/angular-route/angular-route.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="padding: 10px">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                AngularJS Views
+            </div>
+            <div class="panel-body">
+                <p>Html code: </p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+<xmp>
+    $routeProvider is defined as a function under config of mainApp module using key as '$routeProvider'.
+
+    $routeProvider.when defines a url "/addStudent" which then is mapped to "addStudent.htm". addStudent.htm should be present in the same path as main html page.
+    If htm page is not defined then ng-template to be used with id="addStudent.htm". We've used ng-template.
+
+    "otherwise" is used to set the default view.
+
+    "controller" is used to set the corresponding controller for the view.    
+</xmp>
+                    </li>
+                </ul>
+                <p>Output: </p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div ng-app = "mainApp">
+                            <p><a href = "#addStudent">Add Student</a></p>
+                            <p><a href = "#viewStudents">View Students</a></p>
+                            <p><a href = "#delStudent">Delete Student</a></p>
+                            <div ng-view></div>
+                            
+                            <script type = "text/ng-template" id = "viewStudents.html">
+                            <h2> View Students </h2>
+                            {{message}}
+                            </script>
+
+                            <script type = "text/ng-template" id = "delStudent.html">
+                            <h2> Delete Student </h2>
+                            {{message}}
+                            </script>
+                            
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var mainApp = angular.module("mainApp", ['ngRoute']);
+        mainApp.config(['$routeProvider', ($routeProvider) => { 
+            $routeProvider.when('/addStudent', { 
+                templateUrl: 'create.html',
+                controller: 'creatCtrl' 
+            }).when('/viewStudents', { 
+                templateUrl: 'viewStudents.htm', 
+                controller: 'readCtrl' 
+            }).when('/delStudent', {
+                templateUrl: 'delStudent.htm', 
+                controller: 'delCtrl'
+            }).otherwise({ 
+                redirectTo: '/addStudent' 
+            }); 
+        }]); 
+
+        mainApp.controller('creatCtrl', function($scope) { 
+            $scope.message = "This page will be used to display add student form"; 
+        }); 
+        mainApp.controller('readCtrl', function($scope) { 
+            $scope.message = "This page will be used to display all the students"; 
+        });
+        mainApp.controller('delCtrl', function($scope) { 
+            $scope.message = "This page will be used to display all the students"; 
+        });
+
+    </script>
+</body>
+
+</html>

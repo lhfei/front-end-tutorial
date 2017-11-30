@@ -1,0 +1,15 @@
+<p>Subjects:</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th ng-click="student.setOrder('name')">Name</th>
+            <th ng-click="student.setOrder('marks')">Marks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="subject in student.subjects | orderBy: student.myOrderBy">
+            <td>{{ subject.name }}</td>
+            <td>{{ subject.marks }}</td>
+        </tr>
+    </tbody>
+</table>

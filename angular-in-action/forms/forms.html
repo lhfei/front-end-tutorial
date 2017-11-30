@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <script data-require="angular.js@1.5.3" data-semver="1.5.3" src="../node_modules/angular/angular.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="padding: 10px">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                AngularJS Forms
+            </div>
+            <div class="panel-body">
+                <p>Html code: </p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                    </li>
+                </ul>
+                <p>Output: </p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div ng-app="formApp" ng-controller="formCtrl">
+                            <form class="form">
+                                <label>First Name:</label>
+                                <input class="form-item" type="text" ng-model="user.firstName">
+                                <label>Last Name:</label>
+                                <input type="text" ng-model="user.lastName">
+                                <br>
+                                <br>
+                                <button ng-click="reset()">RESET</button>
+                            </form>
+                            <p>form = {{user}}</p>
+                            <p>master = {{master}}</p>
+
+							<input value="{{user}}" />
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var app = angular.module('formApp', []);
+        app.controller('formCtrl', ['$scope', function ($scope) {
+            $scope.user = {'firstName': 'Hefei', 'lastName': 'Li'};
+            $scope.master = {'firstName': 'Hefly', 'lastName': 'Li'};
+
+            $scope.reset = () => {
+                $scope.user = angular.copy($scope.master)
+            }
+        }]);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Mahesh Parashar",
+        "rollNo": 101,
+        "percentage": "80%"
+    },
+    {
+        "name": "Dinkar Kad",
+        "rollNo": 201,
+        "percentage": "70%"
+    },
+    {
+        "name": "Robert",
+        "rollNo": 191,
+        "percentage": "75%"
+    },
+    {
+        "name": "Julian Joe",
+        "rollNo": 111,
+        "percentage": "77%"
+    }
+]

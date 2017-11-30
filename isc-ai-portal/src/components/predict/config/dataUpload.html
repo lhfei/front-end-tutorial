@@ -1,0 +1,78 @@
+<div ng-controller="uploadCtr" ng-init="init()">
+    <input type="hidden" id="fileId" value="">
+    <div id="first_step">
+        <ul class="step-container current-first">
+            <li class="step-first">第一步：上传数据文件</li>
+            <li class="step-second">第二步：编辑数据集</li>
+            <li class="step-three">第三步：创建数据表</li>
+        </ul>
+        <div id="dropzone" class="dropzone" options="dzOptions" callbacks="dzCallbacks" ng-dropzone>
+        </div>
+    </div>
+    <br>
+
+
+    <div id="second_step">
+        <ul class="step-container current-second">
+            <li class="step-first">第一步：上传数据文件</li>
+            <li class="step-second">第二步：编辑数据集</li>
+            <li class="step-three">第三步：创建数据表</li>
+        </ul>
+        <div>
+            <form id="fileForm" name="fileForm">
+                <div class="row">
+                    <div class="col-md-4">文件名称：<input type="text" id="fileName" name="fileName" ng-model="fileName"
+                                                      required/>
+                        <span ng-messages="fileForm.fileName.$error">
+                            <span ng-message="required" style="color:red">（必填）</span>
+                        </span>
+                    </div>
+                    <div class="col-md-4">字段分割符：<input type="text" id="fileSplit" name="fileSplit" ng-model="fileSplit"
+                                                       required/>
+                        <span ng-messages="fileForm.fileSplit.$error">
+                            <span ng-message="required" style="color:red">（必填）</span>
+                        </span>
+                    </div>
+                    <div class="col-md-4">首行是否为列名：<input type="radio" id="fileheader" name="fileheader"
+                                                         ng-model="fileheader" required value="1"/> 是
+                        <input type="radio" id="fileheader2" name="fileheader"
+                               ng-model="fileheader" required  value="0"/> 否
+                        <span ng-messages="fileForm.fileheader.$error">
+                            <span ng-message="required" style="color:red">（必选）</span>
+                        </span>
+                    </div>
+                </div>
+                <div align="center">
+                    <br>
+                    <input type="button" class="btn btn-primary" value="下一步" ng-click="saveFile()" ng-disabled="fileForm.$invalid"/>
+                    <input type="button" class="btn btn-primary" value="取消" ng-click=""/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="third_step">
+        <ul class="step-container current-thrid">
+            <li class="step-first">第一步：上传数据文件</li>
+            <li class="step-second">第二步：编辑数据</li>
+            <li class="step-thrid">第三步：创建数据表</li>
+        </ul>
+        <div id="predata">
+            <div>
+                <form id="tableForm">
+                    <table id="example" class="table table-striped" cellspacing="0" width="100%">
+                    </table>
+                </form>
+                <div align="center"><input type="button" value="保存" class="btn btn-primary" ng-click="saveTable()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+

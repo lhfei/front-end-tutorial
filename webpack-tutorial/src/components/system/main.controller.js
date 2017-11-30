@@ -7,6 +7,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var homeState = {
         name: 'home',
         url: '/',
+        // controller: 'HomeCtrl',
         templateUrl: 'src/components/system/home.html'
     };
     var predictState = {
@@ -17,12 +18,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var tlpState = {
         name: 'tlp',
         url: '/tlp',
+        // controller: 'TlpCtrl',
         templateUrl: 'src/components/tlp/index.html' 
     };
 
     var simulationState = {
         name: 'simulation',
         url: '/simulation',
+        // controller: 'SimulationCtrl',
         templateUrl: 'src/components/simulation/index.html'
     };
 

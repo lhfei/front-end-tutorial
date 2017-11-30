@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="JDChart">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+
+	<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	
+</head>
+<body ng-controller="jdchartCtrl">
+	<div class="container-fluid" style="padding: 50px 0 0 0">
+		<div class="col-sm-6">
+			<uib-tabset active="activeForm">
+			    <uib-tab index="0" heading="Form Tab">
+			    	<input type="text" ng-model="chartWidth" />
+			    	<span>{{chartWidth}}</span> <br>
+					<button type="button" class="btn btn-primary" ng-click="updateType('column')">
+        Single Toggle
+    </button>
+
+			    </uib-tab>
+			    <uib-tab index="1" heading="Tab One">
+			        
+			    </uib-tab>
+			    
+			</uib-tabset>
+		</div>
+
+		<div class="col-sm-6">
+			<jdchart id="id" options="chartOptions" on-click="chartOnClick()"></jdchart>			
+
+		</div>
+
+
+
+	</div>
+
+	
+</body>
+
+	<script src="../../bower_components/angular/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../bower_components/highcharts/highcharts.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app.js" type="text/javascript" charset="utf-8"></script>
+	<script src="controller.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jdchart.directive.js" type="text/javascript" charset="utf-8"></script>
+</html>

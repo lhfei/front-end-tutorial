@@ -1,0 +1,51 @@
+<div ng-controller="paramConfCtrl" style="text-align:center">
+	<div>模型属性</div>
+	<div>{{modelName}}</div>
+	<input type="hidden" id="taskId" value="{{taskId}}"></input>
+	<input type="hidden" id="modelId" value="{{modelId}}"></input>
+	<input type="hidden" id="modelName" value="{{modelName}}"></input>
+	<form id="paramForm" name="paramForm" >
+		<!-- <div >
+			<label >订单编号所在列名</label>
+			<input data-rule-required="true" data-msg-required="不能为空!" data-rule-maxlength="100" data-msg-maxlength="最大长度不能超过{0}" data-rule-minlength="1" data-msg-minlength="最小长度不能小于{0}" value="" class="bdp-algor-component-param-item-input bdp-form-control" name="form_210_1496807555225_907" id="form_210_1496807555225_907" data-paramid="907" data-paramname="orderCol" data-paramtype="3" data-paramdeleted="0" placeholder="请配置其他参数">
+		</div>
+		<div >
+			<label >最小支持度</label>
+			<input data-rule-required="true" data-msg-required="不能为空!" data-rule-max="1" data-msg-max="最大值不能超过{0}" data-rule-min="0" data-msg-min="最小值不能小于{0}" data-rule-maxlength="20" data-msg-maxlength="最大长度不能超过{0}" value="0.5" class="bdp-algor-component-param-item-input bdp-form-control" name="form_210_1496807555225_909" id="form_210_1496807555225_909" data-paramid="909" data-paramname="minSupport" data-paramtype="3" data-paramdeleted="0" placeholder="请配置其他参数">
+		</div> -->
+		<!--<div id="div1">
+			<label >订单编号所在列名</label>
+			<input type="text" ng-model="firstname">
+		</div>
+		<div id="div2">
+			
+		</div>
+
+		<div id="div3">
+		  <div ng-repeat="x in names" id="idd_{{x.id}}">
+		    {{ x.name + ', ' + x.price }}
+		  </div>
+		</div>  -->
+		
+		<div id="div4">
+		  <div ng-repeat="x in names" id="id_{{x.id}}">
+		   
+		    <label>{{ x.cname}}</label>
+		    <input   type="text" name="{{x.ename}}" ng-model="{{x.ename}}" required >
+			<span style="color:red" ng-show="paramForm.{{x.ename}}.$dirty && paramForm.{{x.ename}}.$invalid">
+				<span ng-show="paramForm.{{x.ename}}.$error.required">用户名是必须的。</span>
+			</span>
+		  </div>
+		</div> 
+		
+		<div id="div6">
+		 
+		</div> 
+		
+		<p>
+			<input type="submit" ng-click='submitParams()'>
+		</p>
+	</form>
+
+</div>
+

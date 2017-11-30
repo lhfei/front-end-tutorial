@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>AngularJS Directives</title>
+    <link  href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+
+<body class="container" ng-app="docsTabsExample">
+    <h1>Creating Directives that Communicate</h1>
+
+	<my-tabs>
+		<my-pane title="Angular">
+	        <p>AngularJS</p>
+	    </my-pane>
+	    <my-pane title="Hello">
+	        <p>Lorem ipsum dolor sit amet</p>
+	    </my-pane>
+	    <my-pane title="World">
+	        <em>Mauris elementum elementum enim at suscipit.</em>
+	        <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+	    </my-pane>
+	</my-tabs>
+
+
+    <script src="../../node_modules/angular/angular.js"></script>
+    <script src="docsTabsExample.js"></script>
+</body>
+
+</html>

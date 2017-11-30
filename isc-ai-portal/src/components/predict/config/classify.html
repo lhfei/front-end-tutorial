@@ -1,0 +1,222 @@
+<!--选择模型-->
+<div class="row col-md-12">
+
+<div ng-controller="classifyController" class="panel panel-default">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-md-2" style="text-align:center;">
+				<h1>选择模型</h1>
+			</div>
+			<div class="col-md-3">
+				<div class="input-group" style="padding-top: 20px;">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">选择模型
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li ng-repeat="model in modelList">
+								<a href="javascript:void(0);" ng-click="selectModel(model.modelId, model.modelName);">{{model.modelName}}</a>
+							</li>
+						</ul>
+					</div>
+					<input type="text" class="form-control" ng-model="classifyModel.model.modelName" disabled/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body">
+		<div>
+			<div class="row" style="min-length:200px;background: #f3f3f3;overflow: hidden;">
+				<div class="col-md-4">
+					<div id="modelParamsPanel" class="panel panel-primary">
+						<div class="panel-heading">
+							<h2>模型</h2>
+							<div class="clearfix"></div>
+						</div>
+						<div class="panel-body">
+							<div class="">
+								<div id="modelPanel" ng-show="expr.modelSelected">
+									<div class="">
+										<h4>
+											模型说明：
+											<a data-toggle="tooltip" data-placement="bottom" style="cursor:pointer;"
+											   ng-attr-title="{{classifyModel.model.modelDesc}}">
+												{{classifyModel.model.modelName}}
+											</a>
+										</h4>
+									</div>
+									<label>模型参数：点击模型参数，可进行设置</label>
+									<ul class="to_do">
+										<li ng-repeat="modelParam in modelParams">
+											<p ng-click="modelParamCheck($index);" style="cursor: pointer;"><!--<input type="checkbox" class="flat colFull" ng-model="modelColCheckbox[modelCol.name]"
+													  ng-click="modelColCheck();" ng-hide="modelCol.required"/>-->
+												<a href="javascript:void(0);">
+													{{modelParam.name}}
+												</a>
+											</p>
+										</li>
+									</ul>
+									<!--
+									<div class="">
+										<label>预测目标:</label>
+										<ul class="to_do">
+											<li ng-repeat="target in classifyModel.modelColumnList">
+												<input type="checkbox" ng-model="targetModelColCheck[target.name]" ng-value="false">
+												{{target.name}}
+											</li>
+										</ul>
+									</div>
+									-->
+								</div>
+							</div>
+							<hr/>
+							<div ng-if="classifyModel.modelParamIndex > -1">
+								<div>
+									<div class="">
+										<h4>
+											模型设置：
+										</h4>
+									</div>
+									<div class="">
+										<ul class="to_do">
+											<li>
+												<div class="form-group">
+													<label>{{modelParams[classifyModel.modelParamIndex].zName}}：</label>
+													{{modelParams[classifyModel.modelParamIndex].desc}}
+												</div>
+												<div class="form-group">
+													<label>默认值：</label>
+													<input type="text" class="form-control" ng-model="modelParams[classifyModel.modelParamIndex].default">
+												</div>
+												<div class="form-group">
+													<label>计划参数值：</label>
+													<input type="text" class="form-control" ng-model="modelParams[classifyModel.modelParamIndex].value">
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div id="fileColMappingPanel" class="panel panel-primary">
+						<div class="panel-heading">
+							<h2>数据</h2>
+							<div class="clearfix"></div>
+						</div>
+						<!--mapping panel header-->
+						<div class="panel-body">
+							<div class="col-md-3">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										模型列
+									</div>
+									<div class="panel-body">
+										<div class="panel panel-info">
+											<div class="panel-heading">
+												模型参数列
+											</div>
+											<div class="panel-body">
+												<ul id="modelPanelColumnList" class="to_do">
+													<li ng-repeat="modelCol in modelColList">
+														<p>{{modelCol.name}}</p>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-9">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										文件列（请拖动文件列到样本列和目标列）
+									</div>
+									<div class="panel-body">
+										<div class="col-md-4">
+											<div class="panel panel-info">
+												<div class="panel-heading">
+													样本列
+												</div>
+												<div class="panel-body">
+													<ul id="sampleColumnList" class="connectedSortable to_do"
+														style="height: 150px;cursor:pointer;">
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="panel panel-info">
+												<div class="panel-heading">
+													目标列
+												</div>
+												<div class="panel-body">
+													<ul id="targetColumnList" class="connectedSortable to_do"
+														style="height: 150px;cursor:pointer;">
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="panel panel-info">
+												<div class="panel-heading">
+													文件列
+												</div>
+												<div class="panel-body">
+													<ul id="fileColSourceSortable" class="connectedSortable to_do">
+														<li ng-repeat="fileCol in fileColList"
+															class="file-col-draggable" style="cursor:pointer;">
+															<p>{{fileCol.name}}</p>
+															<!--
+                                                            <input type="hidden" ng-value="fileCol.name"/>
+                                                            -->
+															<input type="hidden" ng-value="$index"/>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-primary" style="text-align:center;">
+						<div class="panel-heading" style="text-align:center;">
+							<h2>保存：保存选择模型的信息，并提交一个计算计划</h2>
+							<div class="clearfix"></div>
+						</div>
+						<div class="panel-body">
+							<div>
+								<form id="task-form">
+
+									<div class="form-inline form-group">
+										<!--
+                                        <label for="taskId">任务ID：<span class="required">*</span></label>
+                                        <input type="text" id="taskId" class="form-control" ng-model="taskId" required="required" disabled>
+                                        -->
+										<label for="taskName">任务名称： <span class="required">*</span></label>
+										<input type="text" id="taskName" class="form-control" ng-model="taskName" required="required">
+										<a class="btn btn-primary form-control" href="javascript:void(0);" ng-click="submitTask();">保存</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+</div>

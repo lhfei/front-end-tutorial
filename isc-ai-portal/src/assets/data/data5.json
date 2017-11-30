@@ -1,0 +1,39 @@
+[{ "params":[
+    {
+        "id": 0,
+        "ename": "Item 0",
+        "cname": "参1",
+        "default": "0",
+        "rule":"/[^\\d]/g",
+        "required":1
+        
+    },
+    {
+        "id": 1,
+        "ename": "Item 1",
+        "cname": "参2",
+        "default": "1",
+        "rule":"/[^\\d]/g",
+        "required":0
+    }
+]
+},
+{ "model":[
+    {
+        "id": 0,
+        "ename": "Item 0",
+        "cname": "模型1",
+        "version":"1.0"
+        
+    }
+]
+},
+{ "task":[
+    {
+        "id": 0,
+        "taskName": "任务1"
+        
+    }
+]
+}
+]

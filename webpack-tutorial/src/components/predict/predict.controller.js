@@ -1,12 +1,40 @@
+var _root = 'src/components/predict/';
 angular.module('iscAiApp')
-	.controller('PredictCtrl', PredictCtrl);
+    // .config(function($stateProvider, $urlRouterProvider) {
+    //     // For any unmatched url, redirect to /state1
+    //     $urlRouterProvider.otherwise("/taskMan");
+    //     // Now set up the states
+    //     $stateProvider
+    //         .state('taskMan', { // task manage view
+    //             url: "/taskMan",
+    //             templateUrl: _root +"taskMan.html"
+    //         })
+    //         .state('config.init', {
+    //             url: "/cfg-init",
+    //             templateUrl: _root+"config/init.html"
+    //         })
+    //         .state('config.classify', {
+    //             url: "/cfg-classify",
+    //             templateUrl: _root+"config/classify.html"
+    //         })
+    //         .state('config.apply', {
+    //             url: "/cfg-apply",
+    //             templateUrl: _root+"config/apply.html"
+    //         })
+    //         .state('config.visualize', {
+    //             url: "/cfg-visualize",
+    //             templateUrl: _root+"config/visualize.html"
+    //         });
+    // })
+    .controller('PredictCtrl', PredictCtrl);
+
 
 PredictCtrl.$inject = [
   '$scope',
   '$window'
 ];
 
-function PredictCtrl($scope, $window, dropzoneOpsProvider) {
+function PredictCtrl($scope, $window) {
 	var me = this;
 
 	me.MAX_STEPS = 4;

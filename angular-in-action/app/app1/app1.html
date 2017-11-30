@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+
+<head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <script data-require="angular.js@1.5.3" data-semver="1.5.3" src="../../node_modules/angular/angular.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="padding: 10px">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                App 1
+            </div>
+            <div class="panel-body">
+                <div ng-controller="MainCtrl as main">
+                    <div class="col-md-3">
+                        <h2>Stories</h2>
+                        <story class="callout" ng-repeat="story in main.stories" ng-click="main.setCurrentStory(story)">
+                        </story>
+                        <br/>
+                        <a class="btn btn-primary" ng-click="main.createStory()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                    <div class="col-md-7 content">
+                        <h2>Story</h2>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label" for="inputTitle">Title</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="main.currentStory.title" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="inputStatus">Status</label>
+                                <div class="controls">
+                                    <select id="inputStatus" class="form-control" ng-model="main.currentStatus" ng-options="l.name for l in main.statuses" ng-change="main.setCurrentStatus(main.currentStatus)"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="inputType">Type</label>
+                                <div class="controls">
+                                    <select id="inputType" class="form-control" ng-model="main.currentType" ng-options="t.name for t in main.types" ng-change="main.setCurrentType(main.currentType)"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="inputDescription">Description</label>
+                                <div class="controls">
+                                    <textarea id="inputDescription" class="form-control" placeholder="Description" rows="3" ng-model="main.currentStory.description"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="inputAcceptance">Acceptance Criteria</label>
+                                <div class="controls">
+                                    <textarea id="inputAcceptance" class="form-control" placeholder="Acceptance Criteria" rows="3" ng-model="main.currentStory.criteria"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="inputReporter">Reporter</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control" id="inputReporter" placeholder="Reporter" ng-model="main.currentStory.reporter" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAssignee">Assignee</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control" id="inputAssignee" placeholder="Assignee" ng-model="main.currentStory.assignee" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var app = angular.module('MyApp', []);
+
+    app.factory('AngelloHelper', function() {
+        var buildIndex = (source, property) => {
+            var tempArray = [];
+            for (var i = 0, len = source.length; i < len; ++i) {
+                tempArray[source[i][property]] = source[i];
+            }
+
+            return tempArray;
+        };
+
+        return {
+            buildIndex: buildIndex
+        }
+    });
+
+    app.service('AngelloModel', function() {
+        var service = this,
+            statuses = [
+                {name: 'Back Log'},
+                {name: 'To Do'},
+                {name: 'In Progress'},
+                {name: 'Code Review'},
+                {name: 'QA Review'},
+                {name: 'Verified'},
+                {name: 'Done'}
+            ],
+            types = [
+                {name: 'Feature'},
+                {name: 'Enhancement'},
+                {name: 'Bug'},
+                {name: 'Spike'}
+            ],
+            stories = [
+                {
+                    title: 'First story',
+                    description: 'Our first story.',
+                    criteria: 'Criteria pending.',
+                    status: 'To Do',
+                    type: 'Feature',
+                    reporter: 'Lukas Ruebbelke',
+                    assignee: 'Brian Ford'
+                },
+                {
+                    title: 'Second story',
+                    description: 'Do something.',
+                    criteria: 'Criteria pending.',
+                    status: 'Back Log',
+                    type: 'Feature',
+                    reporter: 'Lukas Ruebbelke',
+                    assignee: 'Brian Ford'
+                },
+                {
+                    title: 'Another story',
+                    description: 'Just one more.',
+                    criteria: 'Criteria pending.',
+                    status: 'Code Review',
+                    type: 'Enhancement',
+                    reporter: 'Lukas Ruebbelke',
+                    assignee: 'Brian Ford'
+                }
+            ];
+
+            service.getStatuses = () => {
+                return statuses;
+            };
+
+            service.getTypes = () => {
+                return types;
+            };
+
+            service.getStories = () => {
+                return stories;
+            };
+    });
+
+    app.controller('MainCtrl', function(AngelloModel, AngelloHelper) { 
+        var main = this;
+
+        main.increter = 1;
+
+        main.types = AngelloModel.getTypes();
+        main.statuses = AngelloModel.getStatuses();
+        main.stories = AngelloModel.getStories();
+        main.typesIndex = AngelloHelper.buildIndex(main.types, 'name');
+        main.statusesIndex = AngelloHelper.buildIndex(main.statuses, 'name');
+
+        main.setCurrentStory = (story) => {
+            main.currentStory = story;
+            main.currentStatus = main.statusesIndex[story.status];
+            main.currentType = main.typesIndex[story.type];
+        };
+
+        main.createStory = () => {
+            main.stories.push({
+                title: 'New Story - ' +main.increter,
+                description: 'Description pending.',
+                criteria: 'Criteria pending.',
+                status: 'Back Log',
+                type: 'Feature',
+                reporter: 'Pending',
+                assignee: 'Pending'
+            });
+
+            main.increter ++;
+        };
+
+        main.setCurrentStatus = (status) => {
+            if (typeof main.currentStory !== 'undefined') {
+                main.currentStory.status = status.name;
+            }
+        };
+
+        main.setCurrentType = (type) => {
+            if (typeof main.currentStory !== 'undefined') {
+                main.currentStory.type = type.name;
+            }
+        };        
+    });
+
+    app.directive('story', function() {
+        return {
+            scope: true,
+            replace: true,
+            template: '<div><h4>{{story.title}}</h4><p>{{story.description}}</p></div>'
+        }
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+/*[预测平台&优化平台&仿真平台] */
+.banner-top{width: 100%; height: 761px; margin-top: 78px;}
+.banner-top.forecastbg{background: url("../../src/assets/forcast-banner1.jpg") no-repeat center top;}
+.banner-top.majorizationbg{background: url("../../src/assets/majorization-banner1.jpg") no-repeat center top;}
+.banner-top.simulationbg{background: url("../../src/assets/simulation-banner1.jpg") no-repeat center top;}
+.banner-top .wrapper{width: 1212px; padding: 223px 0 0 0; margin: 0 auto;}
+.banner-top h1{font-size: 48px; color: white; line-height: 100%;}
+.banner-top .text{padding:35px 0 90px 0; font-size: 18px; color: white;line-height: 150%;}
+.banner-top .try-nav{width:180px; height:64px;display: block; text-align: center; border-radius: 6px; background: #3692fd; color: white;font-size: 16px; line-height: 64px;}
+.submenu{width: 100%; height: 89px; background: #1a284D;}
+.submenu .wrapper{width: 1212px; margin: 0 auto; background: url("../../src/assets/line-menu.png") no-repeat; zoom:1; overflow: hidden;}
+.submenu .wrapper a{display: block;float: left; height: 89px; line-height: 89px; width: 303px; text-align: center; color: white; font-size: 20px; background: url("../../src/assets/line-menu.png") no-repeat right top;}
+/*.submenu .wrapper a:hover,*/
+.submenu .wrapper a.on{background:#3692fd;}
+.content-platform{width: 100%; background: #0C1733 url("../../src/assets/bg-platform.jpg") no-repeat center bottom;}
+.content-platform .wrapper{width: 1212px; margin: 0 auto;}
+.content-platform h2{font-size: 26px; color: white; padding: 65px 0 30px 0; text-align: center; line-height: 100%; font-weight: normal;}
+.subbanner{width: 100%; height: 383px; position: relative; margin-bottom: 50px; color: white;}
+.subbanner .pic{position: absolute; width: 100%; height: 100%;}
+.subbanner h3{position: absolute; left: 66px; top: 116px; font-size: 24px; font-weight: normal;}
+.subbanner .txt{position: absolute; width: 600px; top: 171px; left: 66px; line-height: 170%; color: white; font-size: 16px;}
+.superiority{width: 100%; padding: 20px 0 100px 0; zoom: 1; overflow: auto;}
+.superiority li{float: left; padding: 0 62px; width:280px; text-align: center; font-size: 16px; color: white; line-height: 170%;}
+.superiority li .pics{width: 100%; height: 93px; text-align: center;}
+.superiority li .pics img{margin: 0 auto;}
+.superiority li .title{font-size: 24px; padding-bottom: 14px; line-height: 100%;}
+.scenes{padding-bottom: 90px; width: 1100px; margin: 0 auto; zoom:1; overflow: auto;}
+.scenes .lefmenu{float: left; width: 134px;}
+.scenes .lefmenu.fore{padding-top: 81px;}
+.scenes .lefmenu.major{padding-top: 22px;}
+.scenes .lefmenu.simu{padding-top: 36px;}
+.scenes .lefmenu ul{width: 315px; background: white; border-radius: 6px;}
+.scenes .lefmenu li{width: 179px; height:88px; box-shadow: 0 1px 6px #979797 inset; overflow: hidden; background: #3692fd;line-height: 88px; font-size: 24px; color: #333; padding-left:136px; cursor: default; position: relative;}
+.scenes .lefmenu li:first-child{border-top-left-radius: 6px; border-top-right-radius: 6px;}
+.scenes .lefmenu li:last-child{border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;}
+.scenes .lefmenu li .icon-show{display: none;}
+.scenes .lefmenu li.on{color: white; box-shadow: -2px 1px 9px #979797; overflow: inherit;}
+.scenes .lefmenu li.on .icon-show{display: block; position: absolute; right: -31px; top: 40px;}
+.scenes .lefmenu.fore li.first{background: url("../../src/assets/lef-forcast1.png") no-repeat 40px center;}
+.scenes .lefmenu.fore li.first.on{background:#3692fd url("../../src/assets/lef-forcast1s.png") no-repeat 40px center;}
+.scenes .lefmenu.fore li.second{background: url("../../src/assets/lef-forcast2.png") no-repeat 40px center;}
+.scenes .lefmenu.fore li.second.on{background:#3692fd url("../../src/assets/lef-forcast2s.png") no-repeat 40px center;}
+.scenes .lefmenu.major li.first{background: url("../../src/assets/lef-majorization1.png") no-repeat 40px center;}
+.scenes .lefmenu.major li.first.on{background:#3692fd url("../../src/assets/lef-majorization1s.png") no-repeat 40px center;}
+.scenes .lefmenu.major li.second{background: url("../../src/assets/lef-forcast2.png") no-repeat 40px center;}
+.scenes .lefmenu.major li.second.on{background:#3692fd url("../../src/assets/lef-forcast2s.png") no-repeat 40px center;}
+.scenes .lefmenu.major li.third{background: url("../../src/assets/lef-majorization3.png") no-repeat 40px center;}
+.scenes .lefmenu.major li.third.on{background:#3692fd url("../../src/assets/lef-majorization3s.png") no-repeat 40px center;}
+.scenes .lefmenu.simu li.first{background: url("../../src/assets/lef-simu1.png") no-repeat 19px center; padding-left: 80px; width: 235px;}
+.scenes .lefmenu.simu li.first.on{background:#3692fd url("../../src/assets/lef-simu1s.png") no-repeat 19px center;}
+.scenes .lefmenu.simu li.second{background: url("../../src/assets/lef-simu2.png") no-repeat 19px center; padding-left: 80px; width: 235px;}
+.scenes .lefmenu.simu li.second.on{background:#3692fd url("../../src/assets/lef-simu2s.png") no-repeat 19px center;}
+.scenes .showbox{float: right;background: #3692fd url("../../src/assets/scenes-bg.jpg") no-repeat right top; border-radius: 6px;  }
+.scenes .showbox .content{width: 678px;color: white; font-size: 14px; line-height: 140%;padding: 20px 30px; display: none;}
+.scenes .showbox .content h4{font-size: 16px; padding-bottom: 8px; font-weight: normal;}
+.scenes .showbox .content .txt{width: 587px;}
+#foruse{width: 980px; margin: 0 auto; padding: 56px 0; font-size: 14px; line-height: 150%; background: url("../../src/assets/use-bg.png") no-repeat right bottom;}
+#foruse h3{width: 105px; border-bottom: solid 2px #3692fd; line-height: 200%; margin: 0 auto 30px auto; text-align: center; font-size: 26px; color: #333; font-weight: normal;}
+#foruse .wrapper{padding-left: 14px; border-left: solid 1px #979797; color: #5c5c5c;}
+#foruse .wrapper p{padding-bottom: 20px;}
+#foruse .wrapper .title{font-size: 16px;}
+.specify{margin-top: -100px; opacity: 0;}
+#tryBtn{position: fixed; right: 0; top: 50%; width: 138px; height: 64px; display: none; border-top-left-radius: 6px; border-bottom-left-radius: 6px; background:#3692fd url("../../src/assets/trybtn-bg.png") no-repeat 120px center; padding-left: 42px; line-height: 64px; color: white; font-size: 16px;}
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <script data-require="angular.js@1.5.3" data-semver="1.5.3" src="../node_modules/angular/angular.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="padding: 10px">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                AngularJS Cusome Directives
+            </div>
+            <div class="panel-body">
+                <p>Html code: </p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                    </li>
+                </ul>
+                <p>Output: </p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div ng-app="mainApp" ng-controller="StudentController">
+                            <student name="Mahesh"></student>
+                            <br/>
+                            <student name="Piyush"></student>
+                        </div>
+                   
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var mainApp = angular.module("mainApp", []);
+         
+        mainApp.directive('student', function() {
+            var directive = {};
+            directive.restrict = 'E';
+            directive.template = "Student: <b>{{student.name}}</b> , Roll No: <b>{{student.rollno}}</b>";
+            
+            directive.scope = {
+               student: "=name"
+            }
+            
+            directive.compile = function(element, attributes) {
+               element.css("border", "1px solid #cccccc");
+               
+               var linkFunction = function($scope, element, attributes) {
+                  element.html("Student: <b>"+$scope.student.name +"</b> , Roll No: <b>"+$scope.student.rollno+"</b><br/>");
+                  element.css("background-color", "#ff00ff");
+                  element.css("class", "col-sm3");
+               }
+               return linkFunction;
+            }
+            
+            return directive;
+        });
+         
+        mainApp.controller('StudentController', function($scope) {
+            $scope.Mahesh = {};
+            $scope.Mahesh.name = "Mahesh Parashar";
+            $scope.Mahesh.rollno  = 1;
+
+            $scope.Piyush = {};
+            $scope.Piyush.name = "Piyush Parashar";
+            $scope.Piyush.rollno  = 2;
+        });    
+    </script>
+</body>
+
+</html>

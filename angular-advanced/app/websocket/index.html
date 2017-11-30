@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="DataWorkerApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body ng-controller="dataworkerCtrl">
+    <div class="container-fluid" style="padding: 50px 0 0 0">
+        <div class="col-sm-12">
+            <uib-tabset active="activeForm">
+                <uib-tab index="0" heading="Form Tab">
+                    <button type="button" class="btn btn-primary" ng-click="load()">
+                        Single Toggle
+                    </button>
+                </uib-tab>
+                <uib-tab index="1" heading="Tab One">
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+</body>
+<script src="../../bower_components/angular/angular.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../bower_components/angular-websocket/dist/angular-websocket.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="app.js" type="text/javascript" charset="utf-8"></script>
+<script src="baseUrl.service.js" type="text/javascript" charset="utf-8"></script>
+<script src="dataworker.service.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

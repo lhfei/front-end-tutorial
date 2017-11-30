@@ -1,0 +1,16 @@
+{ "sites":[
+    {
+        "id": 0,
+        "cname": "用户名",
+        "ename": "username",
+        "type": "string",
+        "default":"zhang"
+    },
+    {
+        "cname": "用户id",
+        "ename": "userid",
+        "type": "numeric",
+        "default":"1"
+    }
+]
+}

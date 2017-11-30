@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <title>AngularJS Directives</title>
+    <link  href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+
+<body class="container" ng-app="docsTimeDirective">
+    <h1>Sample Directive with <b>Link</b></h1>
+
+	<div ng-controller="Controller">
+	    Date format:
+	    <input ng-model="format">
+	    <hr/> Current time is: <span my-current-time="format"></span>
+	</div>
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="docsTimeDirective.js"></script>
+</body>
+
+</html>

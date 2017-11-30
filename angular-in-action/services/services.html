@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <script data-require="angular.js@1.5.3" data-semver="1.5.3" src="../node_modules/angular/angular.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="padding: 10px">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                AngularJS Services
+            </div>
+            <div class="panel-body">
+                <p>Html code: </p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+<xmp>
+AngularJS supports the concepts of "Separation of Concerns" using services architecture. Services are javascript functions and are responsible to do a specific tasks only. This makes them an individual entity which is maintainable and testable. Controllers, filters can call them as on requirement basis. Services are normally injected using dependency injection mechanism of AngularJS.
+
+AngularJS provides many inbuilt services for example, $http, $route, $window, $location etc. Each service is responsible for a specific task for example, $http is used to make ajax call to get the server data. $route is used to define the routing information and so on. Inbuilt services are always prefixed with $ symbol.
+
+There are two ways to create a service.
+
+    .factory
+    .service
+
+<script type="text/javascript">
+    var mainApp = angular.module("mainApp", []);
+     
+    mainApp.factory('MathService', function() {
+        var factory = {};
+        
+        factory.multiply = function(a, b) {
+           return a * b
+        }
+        return factory;
+    });
+     
+    mainApp.service('CalcService', function(MathService){
+        this.square = function(a) {
+           return MathService.multiply(a,a);
+        }
+    });
+     
+    mainApp.controller('CalcController', function($scope, CalcService) {
+        $scope.square = function() {
+           $scope.result = CalcService.square($scope.number);
+        }
+    });    
+</script>
+</xmp>
+                    </li>
+                </ul>
+                <p>Output: </p>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div ng-app="mainApp" ng-controller="CalcController">
+                            <p>Enter a number:
+                                <input type="number" ng-model="number" />
+                                <button ng-click="square()">X<sup>2</sup></button>
+                            </p>
+                            <p>Result: {{result}}</p>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var mainApp = angular.module("mainApp", []);
+         
+        mainApp.factory('MathService', function() {
+            var factory = {};
+            
+            factory.multiply = function(a, b) {
+               return a * b
+            }
+            return factory;
+        });
+         
+        mainApp.service('CalcService', function(MathService){
+            this.square = function(a) {
+               return MathService.multiply(a,a);
+            }
+        });
+         
+        mainApp.controller('CalcController', function($scope, CalcService) {
+            $scope.square = function() {
+               $scope.result = CalcService.square($scope.number);
+            }
+        });    
+    </script>
+</body>
+
+</html>

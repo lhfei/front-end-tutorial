@@ -1,0 +1,29 @@
+{
+  "name": "saas-portal",
+  "version": "1.0.0",
+  "description": "Y SaaS Platform Portal Application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lhfei/front-end-tutorial.git"
+  },
+  "keywords": [
+    "Node.JS",
+    "Http",
+    "Proxy"
+  ],
+  "author": "Hefei Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lhfei/front-end-tutorial/issues"
+  },
+  "homepage": "https://github.com/lhfei/front-end-tutorial#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "http-proxy": "^1.16.2",
+    "jsonfile": "^3.0.1"
+  }
+}

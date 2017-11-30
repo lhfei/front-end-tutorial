@@ -1,0 +1,26 @@
+{
+  "name": "angular-advanced",
+  "version": "1.0.0",
+  "description": "Angular Advanced samples.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lhfei/angular-advanced.git"
+  },
+  "keywords": [
+    "angular",
+    "js"
+  ],
+  "author": "Hefei Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lhfei/angular-advanced/issues"
+  },
+  "homepage": "https://github.com/lhfei/angular-advanced#readme",
+  "dependencies": {
+    "angular2-highcharts": "^0.3.4"
+  }
+}

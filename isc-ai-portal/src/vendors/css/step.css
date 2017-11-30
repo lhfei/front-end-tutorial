@@ -1,0 +1,77 @@
+ .step-container {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: 0;
+        overflow: hidden;
+        margin-bottom: 20px;
+        border: 1px solid #eeeeee;
+    }
+    .step-container li {
+        margin: 0;
+        padding: 0;
+        height: 30px;
+        width: 33.33%;
+        font-size: 12px;
+        line-height: 30px;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+    }
+    .current-first .step-first,
+    .current-second .step-second,
+    .current-thrid .step-thrid {
+        color: #ffffff;
+        background-color: #00a2ca;
+    }
+    .step-container li:after {
+        content: "";
+        width: 21.21px; /* 30 * Math.sin(Math.PI * (45 / 180)) */
+        height: 21.21px;
+        display: block;
+        position: absolute;
+        right: -4px;
+        color: #ebebeb;
+        top: 40%;
+        -webkit-transform: rotate(45deg) translateY(-50%);
+        -moz-transform: rotate(45deg) translateY(-50%);
+        -o-transform: rotate(45deg) translateY(-50%);
+        -ms-transform: rotate(45deg) translateY(-50%);
+        transform: rotate(45deg) translateY(-50%);
+    }
+    .step-container li:before {
+        content: "";
+        width: 21.21px;
+        height: 21.21px;
+        display: block;
+        position: absolute;
+        left: -18px;
+        color: #ebebeb;
+        top: 40%;
+        -webkit-transform: rotate(45deg) translateY(-50%);
+        -moz-transform: rotate(45deg) translateY(-50%);
+        -o-transform: rotate(45deg) translateY(-50%);
+        -ms-transform: rotate(45deg) translateY(-50%);
+        transform: rotate(45deg) translateY(-50%);
+    }
+    .current-first .step-first:after {
+        background-color: #00a2ca;
+    }
+    .current-first .step-second:after {
+        border-top: 1px solid #eeeeee;
+        border-right: 1px solid #eeeeee;
+    }
+    .current-second .step-first:after,
+    .current-thrid .step-first:after {
+        border-top: 1px solid #eeeeee;
+        border-right: 1px solid #eeeeee;
+    }
+    .current-second .step-second:after {
+        background-color: #00a2ca;
+    }
+    .current-second .step-second:before {
+        background-color: #ffffff;
+    }
+    .current-thrid .step-thrid:before {
+        background-color: #ffffff;
+    }

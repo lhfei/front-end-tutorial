@@ -1,0 +1,19 @@
+/*表单&联系我们&注册*/
+.content-form{width: 700px; margin: 0 auto; padding: 197px 0;}
+.table-box{width:100%;border: none;}
+.table-box tr th{color: #5c5c5c; font-size: 16px; font-weight: normal; padding:0 14px 0 0; text-align: right; vertical-align: top; line-height: 45px;}
+.table-box .pact{color: #5c5c5c; font-size: 14px; padding:0 14px 0 0;  margin: -25px 0 0 0; line-height: 100%;}
+.table-box .pact input{display: inline; margin-right:11px;}
+.table-box .frinput{width: 327px; height: 45px; line-height: 45px; padding: 0 14px; border: solid 1px hsla(0,0%,62%,.52); border-radius: 6px; margin-bottom: 20px; font-size: 14px; outline: none;}
+.table-box .fritext{width: 471px; height: 237px; line-height: 45px; padding: 0 14px; border: solid 1px hsla(0,0%,62%,.52); border-radius: 6px; margin-bottom: 20px; font-size: 14px; outline: none;}
+.table-box .button-sub{width: 120px; height: 36px; line-height: 36px; text-align: center;background: #3692fd;font-size: 16px; color: white; border-radius: 6px; border: none;}
+.table-box .error-tip{padding-left: 29px; color: #3692fd; font-size: 16px; display: none;}
+.table-box .error-tip.on{display: inline-block;}
+.table-box a.registernav{color: #3692fd; font-size: 16px;}
+/*帮助*/
+.help-wrapper{width: 1000px; margin: 0 auto; padding: 150px 0 70px 0;}
+.help-wrapper .title{font-size: 18px; padding-bottom: 15px; font-weight: bold;}
+.help-wrapper .txt{font-size: 16px; padding-bottom: 30px; line-height: 160%;}
+
+
+

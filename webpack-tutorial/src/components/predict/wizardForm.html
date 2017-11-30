@@ -45,7 +45,7 @@
     <div id="wizardForm" class="form_wizard wizard_horizontal">
         <ul class="wizard_steps">
             <li>
-                <a href="#step-1">
+                <a ui-sref="config.init">
                     <span class="step_no">1</span>
                     <span class="step_descr">
                   Step 1<br />
@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li>
-                <a href="#step-2">
+                <a ui-sref="config.classify">
                     <span class="step_no">2</span>
                     <span class="step_descr">
                   Step 2<br />
@@ -63,7 +63,7 @@
                 </a>
             </li>
             <li>
-                <a href="#step-3">
+                <a ui-sref="config.apply">
                     <span class="step_no">3</span>
                     <span class="step_descr">
                   Step 3<br />
@@ -72,7 +72,7 @@
                 </a>
             </li>
             <li>
-                <a href="#step-4">
+                <a ui-sref="config.visualize">
                     <span class="step_no">4</span>
                     <span class="step_descr">
                   Step 4<br />
@@ -81,8 +81,8 @@
                 </a>
             </li>
         </ul>
-        <div id="step-1">
-            <!--<form class="form-horizontal form-label-left">
+        <!--<div id="step-1">
+            <form class="form-horizontal form-label-left">
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
                     </label>
@@ -97,14 +97,14 @@
                         <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
                     </div>
                 </div>
-            </form>-->
-        </div>
+            </form>
+        </div>-->
     </div>
 
-    <!--<p>Drag multiple files to the box below for multi upload or click to select files. This is for demonstration purposes only, the files are not uploaded to any server.</p>
-    <form action="form_upload.html" class="dropzone"></form>--> 
-
-    <div id="dropzone1" class="dropzone" options="dzOptions" callbacks="dzCallbacks" ng-dropzone></div>       
+  <div class="container-fluid">
+    <div ui-view></div>
+  </div>
+           
   </div>
 
   <div class="clearfix"></div>
@@ -154,9 +154,9 @@
 
   <div class="actionBar">
     <!--<div class="loader">Loading</div>-->
-    <a href="#" class="buttonFinish buttonDisabled btn btn-default">Finish</a>
-    <a href="#" class="buttonNext btn btn-success" ng-click="goStep(1)">Next</a>
-    <a href="#" class="buttonPrevious buttonDisabled btn btn-primary" ng-click="gotStep(-1)">Previous</a>
+    <a ui-sref="#" class="buttonFinish buttonDisabled btn btn-default">Finish</a>
+    <a ui-sref="#" class="buttonNext btn btn-success" ng-click="goStep(1)">Next</a>
+    <a ui-sref="#" class="buttonPrevious buttonDisabled btn btn-primary" ng-click="gotStep(-1)">Previous</a>
   </div>
 </div>
 <!-- End SmartWizard Content -->
